@@ -12,7 +12,10 @@ export class UserService {
       id: Math.ceil(100*Math.random()),
       firstName: 'Petar',
       lastName: 'Petrovic',
-      userName: 'petarp97'
+      userName: 'petarP97',
+      favouriteGenres: [],
+      watchlist: [],
+      reviews: []
     }
   }
 

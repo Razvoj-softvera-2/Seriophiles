@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 
 
-const routes: Routes = [{ path: 'user', loadChildren: () => import('./identity/identity.module').then(m => m.IdentityModule) }];
+const routes = [
+  { path: 'user', loadChildren: () => import('./identity/identity.module').then(m => m.IdentityModule) },
+  { path: 'shows', loadChildren: () => import('./shows/shows.module').then(m => m.ShowsModule)},
+  { path: '', loadChildren: () => import('./recommendations/recommendations.module').then(m => m.RecommendationsModule) }
+];
 
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   exports:[
     RouterModule

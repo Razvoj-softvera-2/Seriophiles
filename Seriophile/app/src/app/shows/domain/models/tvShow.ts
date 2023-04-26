@@ -1,4 +1,4 @@
-import {Genre} from "../../../shared/genres.enum";
+import { Genre } from "./genres.enum";
 
 export interface TvShow{
   id: number,
@@ -8,6 +8,6 @@ export interface TvShow{
   endDate?: number,
   rating?: number,
   numberOfReviews: number,
-  description: string
+  description: string,
   comments: Comment[]
 }
