@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 
 import { ShowsRoutingModule } from "./shows-routing.module";
 import { ShowsComponent } from "./shows.component";
-import {IdentityRoutingModule} from "../identity/identity-routing.module";
 
 
 @NgModule({
@@ -12,7 +11,7 @@ import {IdentityRoutingModule} from "../identity/identity-routing.module";
   ],
   imports:[
     CommonModule,
-    IdentityRoutingModule
+    ShowsRoutingModule
   ]
 })
 
