@@ -1,4 +1,11 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Seriophile",
+    "\\Services\\Series",
+    "\\Services\\Series\\Series.API",
+    "\\Services\\Series\\Series.API\\Entities"
+  ],
+  "SelectedNode": "\\Seriophile",
   "PreviewInSolutionExplorer": false
 }
