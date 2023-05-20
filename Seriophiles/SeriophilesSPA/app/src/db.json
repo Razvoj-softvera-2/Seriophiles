@@ -1,7 +1,9 @@
 {
   "users": [
-    {"id": 1,"firstName": "Petar","lastName": "Petrovic","username": "petarP97","email": "perap@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": []},
-    {"id": 2,"firstName": "Marko","lastName": "Markovic","username": "mare123","email": "mare123@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": []}
+    {"id": 1,"firstName": "Petar","lastName": "Petrovic","username": "petarP97","email": "perap@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [],
+      "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"
+    },
+    {"id": 2,"firstName": "Marko","lastName": "Markovic","username": "mare123","email": "mare123@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [], "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"}
   ],
   "shows": [{"id": 0, "name": "Breaking Bad", "startDate": 2008, "endDate": 2013, "comments":[] , "genre": "Drama" , "numberOfReviews": 0 ,"description": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future."},
     {"id": 1, "name": "Better Call Saul", "startDate": 2015, "comments":[], "genre": "Drama", "numberOfReviews": 0, "description":""},

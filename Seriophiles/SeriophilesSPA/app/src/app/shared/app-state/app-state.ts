@@ -2,19 +2,23 @@ import {Role} from "./role";
 import {IUser} from "../../identity/domain/models/user";
 
 export interface IAppState{
-  user? : IUser;
+  username?: string;
+  firstName?: string;
+  email?: string;
+  userId?: number;
   hasRole(role: Role): boolean;
   clone(): IAppState;
 }
 
 export class AppState implements IAppState{
-  user?: IUser;
+  username?: string;
+  firstName?: string;
+  email?: string;
+  userId?: number;
   role?: Role;
 
   constructor() {
   }
-
-
 
   hasRole(role: Role): boolean {
     if(!this.role){

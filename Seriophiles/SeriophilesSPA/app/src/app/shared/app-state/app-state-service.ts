@@ -20,19 +20,19 @@ export class AppStateService{
 
   public setUsername(username: string): void {
     this.appState = this.appState.clone();
-    this.appState.user.username = username;
+    this.appState.username = username;
     this.appStateSubject.next(this.appState);
   }
 
   public setEmail(email: string): void {
     this.appState = this.appState.clone();
-    this.appState.user.email = email;
+    this.appState.email = email;
     this.appStateSubject.next(this.appState);
   }
 
-  public setUser(user: IUser): void {
+  public setUserId(userId: number): void {
     this.appState = this.appState.clone();
-    this.appState.user = user;
+    this.appState.userId = userId;
     this.appStateSubject.next(this.appState);
   }
 

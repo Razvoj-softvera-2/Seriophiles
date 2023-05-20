@@ -3,7 +3,7 @@ import { Comment } from "../../../shows/domain/models/comment";
 import { Genre } from "../../../shows/domain/models/genres.enum";
 
 export interface IUser{
-  id: number ;
+  id: number;
   firstName: string;
   lastName: string;
   username: string;
@@ -11,4 +11,5 @@ export interface IUser{
   watchlist: TvShow[];
   reviews: Comment[];
   email: string;
+  photo: string;
 }
