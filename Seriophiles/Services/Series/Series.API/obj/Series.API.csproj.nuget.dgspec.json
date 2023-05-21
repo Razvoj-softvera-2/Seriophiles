@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {}
+    "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {
+    "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
+        "projectUniqueName": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
         "projectName": "Series.API",
-        "projectPath": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
-        "packagesPath": "C:\\Users\\ivana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\obj\\",
+        "projectPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
+        "packagesPath": "/home/gamisn/.nuget/packages/",
+        "outputPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ivana\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/gamisn/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,10 +53,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[6.0.16, 6.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,10 +1,15 @@
-﻿services:
+﻿version: '3.4'
+
+services:
+  
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+  
   identityserver:
-    image: identityserver
+    image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
       dockerfile: Security/IdentityServer/Dockerfile
 
-
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+volumes: 
+  mssql_data:
