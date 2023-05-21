@@ -1,0 +1,60 @@
+# Ignore build output
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+*.user
+
+# Ignore Visual Studio files
+*.suo
+*.userprefs
+*.vs/
+*.vssscc
+*.vspscc
+
+# Ignore ReSharper files
+_ReSharper.*/
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+[Bb]in/
+[Oo]bj/
+TestResults/
+
+# Ignore local development server
+.aspnet/
+
+# Ignore .NET Core artifacts
+*.swp
+*~
+*.tmp
+*.TMP
+*.tmp.*
+*.TMP.*
+*.pubxml
+*.publish.xml
+*.log
+*.bak
+*.Cache
+*.DS_Store
+
+# Ignore generated files
+GeneratedFiles/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore Roslyn analyzer cache and rulesets
+*.ruleset
+*.ruleset.cache
