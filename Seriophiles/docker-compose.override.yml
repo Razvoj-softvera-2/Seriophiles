@@ -4,7 +4,7 @@ services:
     mssql:
       container_name: mssql
       environment:
-        - SA_PASSWORD=admin123456
+        - SA_PASSWORD=seriophile123456
         - ACCEPT_EULA=Y
       restart: always
       ports:
@@ -18,7 +18,7 @@ services:
       container_name: identity-server
       environment:
         - ASPNETCORE_ENVIRONMENT=Development
-        - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=MATF12345678rs2;"
+        - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=seriophile1234;"
       depends_on:
         - mssql
       ports:
