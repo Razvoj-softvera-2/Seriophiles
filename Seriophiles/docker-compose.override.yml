@@ -9,6 +9,8 @@ services:
       restart: always
       ports:
         - "1433:1433"
+      # Added due to error, no permission for creating /var/opt/mssql/data. Should be removed, and tested
+      user: root
       volumes:
         - mssql_data:/var/opt/mssql/data
   
