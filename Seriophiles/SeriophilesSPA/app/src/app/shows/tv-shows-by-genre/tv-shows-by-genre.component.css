@@ -1,0 +1,19 @@
+img {
+  height: 150px;
+  width: 250px;
+}
+
+mat-card {
+  width: 280px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cardList > * {
+  margin: 32px;
+}

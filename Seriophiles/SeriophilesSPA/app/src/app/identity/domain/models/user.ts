@@ -1,5 +1,5 @@
-import { TvShow } from "../../../shows/domain/models/tvShow";
-import { Comment } from "../../../shows/domain/models/comment";
+import { ITvShow } from "../../../shows/domain/models/tvShow";
+import { IComment } from "../../../shows/domain/models/comment";
 import { Genre } from "../../../shows/domain/models/genres.enum";
 
 export interface User{
@@ -8,6 +8,6 @@ export interface User{
   lastName: string;
   userName: string;
   favouriteGenres: Genre[];
-  watchlist: TvShow[];
-  reviews: Comment[];
+  watchlist: ITvShow[];
+  reviews: IComment[];
 }

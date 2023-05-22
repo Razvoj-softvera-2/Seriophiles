@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShowsComponent } from "./shows.component";
 
-const routes: Routes = [{path:'', component: ShowsComponent}];
+const routes: Routes = [
+  { path:'', component: ShowsComponent },
+  { path: ':genre', loadChildren: () => import('./tv-shows-by-genre/tv-shows-by-genre.module').then(m => m.TvShowsByGenreModule) },
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

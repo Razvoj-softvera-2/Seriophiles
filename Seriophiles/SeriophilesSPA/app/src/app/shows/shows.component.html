@@ -1,1 +1,9 @@
-<p>shows works!</p>
+<div >
+  <ul>
+    <li *ngFor="let genre of Object.values(Genre)">
+      <a [routerLink]="['/shows',genre]">{{ genre }}</a>
+    </li>
+  </ul>
+</div>
+
+
