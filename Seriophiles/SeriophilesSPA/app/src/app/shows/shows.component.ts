@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Genre} from "./domain/models/genres.enum";
 
 @Component({
   selector: 'app-shows',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./shows.component.css']
 })
 export class ShowsComponent {
+  constructor(){
 
+  }
+
+
+  protected readonly Object = Object;
+  protected readonly Genre = Genre;
 }

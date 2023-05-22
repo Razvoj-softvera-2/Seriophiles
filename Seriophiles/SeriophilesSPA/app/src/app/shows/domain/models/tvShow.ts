@@ -1,6 +1,8 @@
 import { Genre } from "./genres.enum";
+import { IComment } from "./comment";
+import { ISeasonTvShow } from "./seasonTvShow";
 
-export interface TvShow{
+export interface ITvShow{
   id: number,
   name: string,
   genre: Genre,
@@ -8,6 +10,8 @@ export interface TvShow{
   endDate?: number,
   rating?: number,
   numberOfReviews: number,
-  description: string,
-  comments: Comment[]
+  description?: string,
+  comments: IComment [],
+  poster: string,
+  seasons: ISeasonTvShow[]
 }
