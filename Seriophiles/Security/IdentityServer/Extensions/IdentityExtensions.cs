@@ -2,6 +2,7 @@ using IdentityServer.Data;
 using IdentityServer.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace IdentityServer.Extensions;
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IruxXku02EixTjYXbLqXWUNGT0eBOkA1vlPxBfWCwEwDJ3SXC6SOH2dyGZCxDon6g8d+Nb3MUZW4u1uaEiYHFg==",
+  "dgSpecHash": "UmQ7cYcYTTp2tyi2DmvOLbTOXsIaoLTlb+YpAIGSs3lks1glGSe/0A+oAjcufrLMoBIxqKAO8lfk7fb8FTe/nQ==",
   "success": true,
   "projectFilePath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,7 @@
     "/home/gamisn/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/home/gamisn/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/home/gamisn/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/gamisn/.nuget/packages/serilog/3.0.0-dev-02012/serilog.3.0.0-dev-02012.nupkg.sha512",
     "/home/gamisn/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/home/gamisn/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/home/gamisn/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

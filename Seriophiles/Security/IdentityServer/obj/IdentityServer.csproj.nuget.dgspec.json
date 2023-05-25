@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.0.0-dev-02012, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
