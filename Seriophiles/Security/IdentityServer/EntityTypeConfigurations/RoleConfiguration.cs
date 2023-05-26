@@ -13,13 +13,13 @@ public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
         builder.HasData(
             new IdentityRole
             {
-                Name = Roles.Administrator,
-                NormalizedName = Roles.Administrator.ToUpper()
+                Name = RolesEnum.Administrator,
+                NormalizedName = RolesEnum.Administrator.ToUpper()
             },
             new IdentityRole
             {
-                Name = Roles.User,
-                NormalizedName = Roles.User.ToUpper()
+                Name = RolesEnum.User,
+                NormalizedName = RolesEnum.User.ToUpper()
             }
         );
 
