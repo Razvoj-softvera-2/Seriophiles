@@ -35,7 +35,7 @@ public class RegistrationControllerBase : ControllerBase
             {
                 ModelState.TryAddModelError(error.Code, error.Description);
             }
-            _logger.LogError("Failed to add user {NewUser}.", User.UserName);
+            _logger.LogInformation("Failed to add user {NewUser}.", User.UserName);
             return BadRequest(ModelState);
         }
 
