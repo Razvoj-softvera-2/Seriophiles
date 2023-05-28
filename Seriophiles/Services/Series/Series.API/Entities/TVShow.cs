@@ -1,6 +1,6 @@
 ﻿namespace Series.API.Entities
 {
-    public class Series
+    public class TVShow
     {
         public string Id { get; set; }
         public string? Title { get; set; }
@@ -11,6 +11,7 @@
         public string? Description { get; set; }
         public int? Seasons { get; set; }
         public int? Episodes { get; set; }
+        public string[]? Languages { get; set; }
         public string[]? Cast { get; set; }
         public string? Site { get; set; }
     }
