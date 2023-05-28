@@ -1,7 +1,7 @@
-import { User } from "../../../identity/domain/models/user";
+import { IUser } from "../../../identity/domain/models/user";
 
 export interface Comment{
-  user: User,
+  user: IUser,
   review: number,
   comment: string,
   spoiler: boolean

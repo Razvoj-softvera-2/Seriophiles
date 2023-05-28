@@ -1,26 +1,19 @@
 import { Injectable } from '@angular/core';
-import { User } from "../models/user";
+import { IUser } from "../models/user";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private _user : User;
-  constructor() {
-    this._user = {
-      id: Math.ceil(100*Math.random()),
-      firstName: 'Petar',
-      lastName: 'Petrovic',
-      userName: 'petarP97',
-      favouriteGenres: [],
-      watchlist: [],
-      reviews: []
-    }
+  private readonly url : string = "http://localhost:3000/users";
+  constructor(private httpClient: HttpClient){}
+
+  public getUser(): Observable<IUser>{
+    return this.httpClient.get<IUser>(this.url+"/1");
+
   }
 
-
-  get user(): User {
-    return this._user;
-  }
 }
