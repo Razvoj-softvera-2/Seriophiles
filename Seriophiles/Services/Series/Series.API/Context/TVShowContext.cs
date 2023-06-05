@@ -7,7 +7,7 @@ namespace Series.API.Context
     {
         public TVShowContext(IConfiguration configuration)
         {
-            var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+            var client = new MongoClient("mongodb://localhost:27017");
             var TVShowsDatabase = client.GetDatabase("TVShowsDB");
             TVShows = TVShowsDatabase.GetCollection<TVShow>("TVShows");
         }

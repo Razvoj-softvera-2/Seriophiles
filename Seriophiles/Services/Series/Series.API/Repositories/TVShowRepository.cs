@@ -17,12 +17,12 @@ namespace Series.API.Repositories
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<TVShowDTO> GetTVShowById(string id)
+        public async Task<TVShowDTO> GetTVShowById(int id)
         {
-            var TVShow = await _TVShowContext.TVShows.Find(TVShow => (TVShow.Id == id)).FirstOrDefaultAsync();
+            var TVShow = await _TVShowContext.TVShows.Find(TVShow => (TVShow.id == id)).FirstOrDefaultAsync();
             return _mapper.Map<TVShowDTO>(TVShow);
         }
-
+        
         public async Task<IEnumerable<TVShowDTO>> GetAllTVShows()
         {
             var TVShows = await _TVShowContext.TVShows.Find(TVShow => true).ToListAsync();
@@ -31,35 +31,15 @@ namespace Series.API.Repositories
 
         public async Task<IEnumerable<TVShowDTO>> GetTVShowByTitle(string name)
         {
-            var TVShows = await _TVShowContext.TVShows.Find(TVShow =>
-                                   TVShow.Title.ToLower().Contains(name)).ToListAsync();
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => TVShow.name.ToLower().Contains(name.ToLower())).ToListAsync();
             return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
         }
 
-        public async Task<IEnumerable<TVShowDTO>> GetTVShowByYear(int year)
+        public async Task<IEnumerable<TVShowDTO>> GetTVShowsByYear(int year)
         {
-            var TVShows = await _TVShowContext.TVShows.Find(TVShow => (TVShow.Year == year)).ToListAsync();
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => (TVShow.year == year)).ToListAsync();
             return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
         }
 
-        public async Task<IEnumerable<TVShowDTO>> GetTVShowByLanguage(string language)
-        {
-            language = language.ToLower();
-            var TVShows = await _TVShowContext.TVShows.Find(TVShow => true).ToListAsync();
-
-            return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows.FindAll(TVShow => {
-                foreach (var showLanguage in TVShow.Languages)
-                    if (showLanguage.ToLower().Contains(language))
-                        return true;
-                return false;
-            }
-            ));
-        }
-
-        public async Task<bool> DeleteTVShow(string id)
-        {
-            var deleteResult = await _TVShowContext.TVShows.DeleteOneAsync(TVShow => (TVShow.Id == id));
-            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
-        }
     }
 }
