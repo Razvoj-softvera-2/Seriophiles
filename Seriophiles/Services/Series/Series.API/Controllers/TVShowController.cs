@@ -52,6 +52,30 @@ namespace Series.API.Controllers
             return Ok(tvshows);
         }
         
+
+        [HttpPost("[action]/{id}")]
+        [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<TVShowDTO>> CreateTVShowById(int id)
+        {
+            var result = await _repository.CreateTVShowById(id);
+
+            if (result == false)
+                return BadRequest();
+
+            var show = await _repository.GetTVShowById(id);
+
+            return show;
+        }
+
+        [HttpDelete("[action]/{id}")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        public async Task<IActionResult> DeleteTVShow(int id)
+        {
+            await _repository.DeleteTVShow(id);
+            return Ok();
+        }
+
     }   
 }
         

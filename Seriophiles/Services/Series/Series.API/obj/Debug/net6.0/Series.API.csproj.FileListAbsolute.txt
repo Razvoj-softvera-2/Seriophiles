@@ -30,12 +30,6 @@ C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\AWSSDK.Core.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\DnsClient.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\MongoDB.Bson.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\MongoDB.Driver.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\MongoDB.Driver.Core.dll
@@ -43,7 +37,6 @@ C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\SharpCompress.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\Snappier.dll
-C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\ZstdSharp.dll
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\ivana\Desktop\Razvoj\Seriophiles\Seriophiles\Services\Series\Series.API\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
