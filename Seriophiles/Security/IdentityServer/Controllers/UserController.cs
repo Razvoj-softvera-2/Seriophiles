@@ -2,18 +2,17 @@ using AutoMapper;
 using IdentityServer.Controllers.Base;
 using IdentityServer.DTOs;
 using IdentityServer.Entity;
-using IdentityServer.Repositories;
 using IdentityServer.Repositories.Roles;
-using Microsoft.AspNetCore.Identity;
+using IdentityServer.Repositories.Users;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Controllers;
 
 [Route("api/v1/[controller]")]
 [ApiController]
-public class AuthenticationController : RegistrationControllerBase
+public class UserController : RegistrationControllerBase
 {
-    public AuthenticationController(ILogger<AuthenticationController> logger, IMapper mapper, UserManager<User> userManager, IRoleRepository roleRepository) 
+    public UserController(ILogger<UserController> logger, IMapper mapper, IUserRepository userManager, IRoleRepository roleRepository) 
         : base(logger, mapper, userManager, roleRepository)
     {
     }
@@ -26,11 +25,5 @@ public class AuthenticationController : RegistrationControllerBase
         return await RegisterNewUserWithRoles(newUser, new [] { RolesEnum.User });
     }
     
-    [HttpPost("[action]")]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> RegisterAdministrator([FromBody] NewUserDto newUser)
-    {
-        return await RegisterNewUserWithRoles(newUser, new [] { RolesEnum.Administrator });
-    }
+ 
 }

@@ -1177,19 +1177,19 @@
     ]
   },
   "packageFolders": {
-    "/home/gamisn/.nuget/packages/": {}
+    "/home/gamzaja/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
+      "projectUniqueName": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
       "projectName": "Series.API",
-      "projectPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
-      "packagesPath": "/home/gamisn/.nuget/packages/",
-      "outputPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/obj/",
+      "projectPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
+      "packagesPath": "/home/gamzaja/.nuget/packages/",
+      "outputPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/gamisn/.nuget/NuGet/NuGet.Config"
+        "/home/gamzaja/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1235,7 +1235,15 @@
         "warn": true,
         "downloadDependencies": [
           {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          },
+          {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[6.0.16, 6.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
             "version": "[6.0.16, 6.0.16]"
           }
         ],
@@ -1247,7 +1255,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,6 +1,7 @@
 using IdentityServer.Configurations;
 using IdentityServer.Extensions;
 using IdentityServer.Repositories.Roles;
+using IdentityServer.Repositories.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +28,7 @@ builder.Services.ConfigureIdentity();
 
 //DEPENDENCY INJECTIONS
 builder.Services.AddTransient<IRoleRepository, RoleManagerRepositoryImplementation>();
-
-
-
+builder.Services.AddTransient<IUserRepository, UserManagerRepositoryImplementation>();
 
 
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {}
+    "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {}
   },
   "projects": {
-    "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {
+    "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
+        "projectUniqueName": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
         "projectName": "IdentityServer",
-        "projectPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
-        "packagesPath": "/home/gamisn/.nuget/packages/",
-        "outputPath": "/home/gamisn/Desktop/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/obj/",
+        "projectPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
+        "packagesPath": "/home/gamzaja/.nuget/packages/",
+        "outputPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/gamisn/.nuget/NuGet/NuGet.Config"
+          "/home/gamzaja/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     }

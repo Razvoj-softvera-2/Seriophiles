@@ -4,7 +4,7 @@ namespace IdentityServer.Repositories.Roles;
 
 public class RoleManagerRepositoryImplementation : IRoleRepository
 {
-    protected readonly RoleManager<IdentityRole> _roleManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
     public RoleManagerRepositoryImplementation(RoleManager<IdentityRole> roleManager)
     {
