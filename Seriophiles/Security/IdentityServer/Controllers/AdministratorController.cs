@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Controllers;
 
+[Route("api/v1/[controller]")]
+[ApiController]
 public class AdministratorController : RegistrationControllerBase
 {
-    public AdministratorController(ILogger<UserController> logger, IMapper mapper, IUserRepository userManager, IRoleRepository roleRepository) : base(logger, mapper, userManager, roleRepository)
+    public AdministratorController(ILogger<UserController> logger, IMapper mapper, IUserRepository userManager, IRoleRepository roleRepository) 
+        : base(logger, mapper, userManager, roleRepository)
     {
     }
     
