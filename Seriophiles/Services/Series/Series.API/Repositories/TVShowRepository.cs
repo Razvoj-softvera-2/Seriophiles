@@ -42,6 +42,28 @@ namespace Series.API.Repositories
             return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
         }
 
+        public async Task<IEnumerable<TVShowDTO>> GetTVShowsByRuntime(int runtime)
+        {
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => (TVShow.runtime == runtime)).ToListAsync();
+            return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
+        }
+
+        public async Task<IEnumerable<TVShowDTO>> GetTVShowsByGenre(string genre)
+        {
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => true).ToListAsync();
+            var shows = new HashSet<TVShow>();
+            shows.UnionWith(TVShows.FindAll(TVShow => TVShow.genres.Contains(genre)));
+
+            return _mapper.Map<IEnumerable<TVShowDTO>>(shows);
+        }
+
+        public async Task<IEnumerable<TVShowDTO>> GetTVShowsByLanguage(string language)
+        {
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => (TVShow.language == language)).ToListAsync();
+            return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
+        }
+
+
         public async Task<bool> DeleteTVShow(int id)
         {
             var deleteResult = await _TVShowContext.TVShows.DeleteOneAsync(TVShow => (TVShow.id == id));

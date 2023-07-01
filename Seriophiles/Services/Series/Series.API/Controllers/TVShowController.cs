@@ -68,6 +68,23 @@ namespace Series.API.Controllers
             return show;
         }
 
+        [HttpGet("[action]/{genre}")]
+        [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByGenre(string genre)
+        {
+            var shows = await _repository.GetTVShowsByGenre(genre);
+            return Ok(shows);
+        }
+
+        [HttpGet("[action]/{language}")]
+        [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByLanguage(string language)
+        {
+            var shows = await _repository.GetTVShowsByLanguage(language);
+            return Ok(shows);
+        }
+
+
         [HttpDelete("[action]/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteTVShow(int id)

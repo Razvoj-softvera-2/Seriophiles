@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Services",
+    "\\Services\\Series",
+    "\\Services\\Series\\Series.API",
+    "\\Services\\Series\\Series.API\\Controllers",
+    "\\Services\\Series\\Series.API\\DTOs",
+    "\\Services\\Series\\Series.API\\Properties",
+    "\\Services\\Series\\Series.API\\Repositories",
+    "\\Services\\Series\\Series.API\\TVMaze"
+  ],
+  "SelectedNode": "\\Seriophiles.sln",
+  "PreviewInSolutionExplorer": false
+}

@@ -34,19 +34,22 @@ namespace Series.API.TVMaze
 			var json = new JObject();
 
 			json.Add("id", data.Property("id").ToObject<int>());
-
-			var title = data.Property("name").ToObject<string>();
-			if (title == "N/A")
-			{
-				json.Add("name", null);
-			}
-			else
-			{
-				json.Add("name", title);
-			}
-
-			json.Add("runtime", data.Property("runtime").ToObject<int>());
-
+			var name = string.Join(string.Empty, data.Property("name")) != "N/A" ? new JProperty("name", string.Join(string.Empty, data.Property("name"))) : new JProperty("name", null);
+			json.Add(name);
+			var runtime = data.Property("runtime").ToObject<string>() != "N/A" ? new JProperty("runtime", data.Property("runtime").ToObject<int>()) : new JProperty("runtime", null);
+			json.Add(runtime);
+			var genres = string.Join(string.Empty, data.Property("genres")) != "N/A" ? new JProperty("genres", string.Join(string.Empty, data.Property("genres")).Split(' ')) : new JProperty("genres", null);
+			json.Add(genres);
+			var premiered = string.Join(string.Empty, data.Property("premiered")) != "N/A" ? new JProperty("premiered", string.Join(string.Empty, data.Property("premiered"))) : new JProperty("premiered", null);
+			json.Add(premiered);
+			var ended = string.Join(string.Empty, data.Property("ended")) != "N/A" ? new JProperty("ended", string.Join(string.Empty, data.Property("ended"))) : new JProperty("ended", null);
+			json.Add(ended);
+			var site = string.Join(string.Empty, data.Property("officialSite")) != "N/A" ? new JProperty("site", string.Join(string.Empty, data.Property("officialSite"))) : new JProperty("site", null);
+			json.Add(site);
+			var language = string.Join(string.Empty, data.Property("language")) != "N/A" ? new JProperty("language", string.Join(string.Empty, data.Property("language"))) : new JProperty("language", null);
+			json.Add(language);
+			var summary = string.Join(string.Empty, data.Property("summary")) != "N/A" ? new JProperty("summary", string.Join(string.Empty, data.Property("summary"))) : new JProperty("summary", null);
+			json.Add(summary);
 
 			return json;
 		}
