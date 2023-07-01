@@ -22,22 +22,22 @@ public static class IdentityExtensions
     {
         //Identity configurations
         services.AddIdentity<User, IdentityRole>(options =>
-        {
-            //Password Options
-            options.Password.RequireDigit = true;
-            options.Password.RequireUppercase = true;
-            options.Password.RequiredLength = 8;
-            
-            //User Options
-            options.User.RequireUniqueEmail = true;
+            {
+                //Password Options
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
 
-            //Lockout Options
-            options.Lockout.MaxFailedAccessAttempts = 10;
+                //User Options
+                options.User.RequireUniqueEmail = true;
 
-            //Signin Options
-            options.SignIn.RequireConfirmedAccount = true;
+                //Lockout Options
+                options.Lockout.MaxFailedAccessAttempts = 10;
 
-        })
+                //Signin Options
+                options.SignIn.RequireConfirmedAccount = true;
+
+            })
             .AddEntityFrameworkStores<ApplicationContext>()
             .AddDefaultTokenProviders();
 

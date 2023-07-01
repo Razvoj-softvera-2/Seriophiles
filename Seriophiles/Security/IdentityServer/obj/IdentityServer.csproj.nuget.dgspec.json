@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {}
+    "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Security\\IdentityServer\\IdentityServer.csproj": {}
   },
   "projects": {
-    "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj": {
+    "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Security\\IdentityServer\\IdentityServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
+        "projectUniqueName": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Security\\IdentityServer\\IdentityServer.csproj",
         "projectName": "IdentityServer",
-        "projectPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/IdentityServer.csproj",
-        "packagesPath": "/home/gamzaja/.nuget/packages/",
-        "outputPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Security/IdentityServer/obj/",
+        "projectPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Security\\IdentityServer\\IdentityServer.csproj",
+        "packagesPath": "C:\\Users\\mr161\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Security\\IdentityServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/gamzaja/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mr161\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Users\\mr161\\.dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -98,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\mr161\\.dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

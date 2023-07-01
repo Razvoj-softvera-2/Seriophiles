@@ -58,3 +58,7 @@ GeneratedFiles/
 # Ignore Roslyn analyzer cache and rulesets
 *.ruleset
 *.ruleset.cache
+
+
+#Ignore idea folders 
+.idea/

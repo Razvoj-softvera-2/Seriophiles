@@ -22,10 +22,9 @@ public class UserManagerRepositoryImplementation : IUserRepository
         return await _userManager.FindByEmailAsync(email);
     }
 
-    public Task<IdentityResult> FindByUsername(string username)
+    public async Task<User?> FindByUsernameAsync(string username)
     {
-        //yet to be implemented
-        throw new NotImplementedException();
+        return await _userManager.FindByNameAsync(username);
     }
 
     public async Task<IdentityResult> CreateAsync(User user, string password)
@@ -51,5 +50,15 @@ public class UserManagerRepositoryImplementation : IUserRepository
     public async Task<IdentityResult> CreateAsync(User user)
     {
         return await _userManager.CreateAsync(user);
+    }
+
+    public async Task<bool> CheckPasswordAsync(User user, string password)
+    {
+        return await _userManager.CheckPasswordAsync(user, password);
+    }
+
+    public async Task<IList<string>> GetRolesAsync(User user)
+    {
+        return await _userManager.GetRolesAsync(user);
     }
 }

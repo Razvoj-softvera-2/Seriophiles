@@ -1177,24 +1177,25 @@
     ]
   },
   "packageFolders": {
-    "/home/gamzaja/.nuget/packages/": {}
+    "C:\\Users\\mr161\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
+      "projectUniqueName": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
       "projectName": "Series.API",
-      "projectPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/Series.API.csproj",
-      "packagesPath": "/home/gamzaja/.nuget/packages/",
-      "outputPath": "/home/gamzaja/Workspace/Fax/RS2/Seriophiles/Seriophiles/Services/Series/Series.API/obj/",
+      "projectPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
+      "packagesPath": "C:\\Users\\mr161\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/gamzaja/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\mr161\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Users\\mr161\\.dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1236,15 +1237,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[6.0.18, 6.0.18]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[6.0.16, 6.0.16]"
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.18, 6.0.18]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[6.0.18, 6.0.18]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.18, 6.0.18]"
           }
         ],
         "frameworkReferences": {
@@ -1255,7 +1260,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\mr161\\.dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

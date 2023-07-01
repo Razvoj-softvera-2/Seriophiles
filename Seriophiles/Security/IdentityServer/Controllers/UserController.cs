@@ -25,5 +25,6 @@ public class UserController : RegistrationControllerBase
         return await RegisterNewUserWithRoles(newUser, new [] { RolesEnum.User });
     }
     
+    
  
 }
