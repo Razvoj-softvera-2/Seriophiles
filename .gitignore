@@ -59,6 +59,5 @@ GeneratedFiles/
 *.ruleset
 *.ruleset.cache
 
-
 #Ignore idea folders 
-.idea/
+.idea/*

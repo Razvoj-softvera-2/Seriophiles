@@ -37,12 +37,7 @@ public class AuthenticationService : IAuthenticationService
         var accessToken = await CreateAccessToken(user);
         return new AuthenticationModel { AccessToken = accessToken };
     }
-    
-    public Task RemoveRefreshToken(User user, string refreshToken)
-    {
-        throw new NotImplementedException();
-    }
-    
+
     private async Task<string> CreateAccessToken(User user)
     {
         var signingCredentials = GetSigningCredentials();

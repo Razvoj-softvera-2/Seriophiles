@@ -9,10 +9,9 @@ public static class AutoMapperConfiguration
     public static IMapper Initialize()
     {
         var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<User, NewUserDto>();
-                cfg.CreateMap<NewUserDto, User>();
-            });
+        {
+            cfg.CreateMap<User, NewUserDto>().ReverseMap();
+        });
 
         return config.CreateMapper();
     }

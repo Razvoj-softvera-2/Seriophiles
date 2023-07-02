@@ -15,20 +15,13 @@ builder.Services.AddSwaggerGen();
 //Authentication for the rest
 builder.Services.AddAuthentication();
 
-//configure Automapper
-var mapper = AutoMapperConfiguration.Initialize();
-builder.Services.AddSingleton(mapper);
 
-
-//Configuring persistence
+//Extensions
 builder.Services.ConfigurePersistence(builder.Configuration);
-
-//Configuring the identity
 builder.Services.ConfigureIdentity();
-
-//DEPENDENCY INJECTIONS
-builder.Services.AddTransient<IRoleRepository, RoleManagerRepositoryImplementation>();
-builder.Services.AddTransient<IUserRepository, UserManagerRepositoryImplementation>();
+builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureInjections();
+builder.Services.ConfigureAutoMapper();
 
 
 

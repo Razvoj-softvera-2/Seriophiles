@@ -4,6 +4,7 @@ using IdentityServer.DTOs;
 using IdentityServer.Entity;
 using IdentityServer.Repositories.Roles;
 using IdentityServer.Repositories.Users;
+using IdentityServer.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Controllers;
@@ -12,15 +13,15 @@ namespace IdentityServer.Controllers;
 [ApiController]
 public class UserController : RegistrationControllerBase
 {
-    public UserController(ILogger<UserController> logger, IMapper mapper, IUserRepository userManager, IRoleRepository roleRepository) 
-        : base(logger, mapper, userManager, roleRepository)
+    public UserController(ILogger<UserController> logger, IMapper mapper, IUserRepository userRepository, IRoleRepository roleRepository, IAuthenticationService authService) 
+        : base(logger, mapper, userRepository, roleRepository, authService)
     {
     }
-
+    
     [HttpPost("[action]")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> RegisterUser([FromBody] NewUserDto newUser)
+    public async Task<IActionResult> Register([FromBody] NewUserDto newUser)
     {
         return await RegisterNewUserWithRoles(newUser, new [] { RolesEnum.User });
     }

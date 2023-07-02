@@ -4,6 +4,7 @@ using IdentityServer.Entity;
 using IdentityServer.Repositories;
 using IdentityServer.Repositories.Roles;
 using IdentityServer.Repositories.Users;
+using IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,30 +13,33 @@ namespace IdentityServer.Controllers.Base;
 public class RegistrationControllerBase : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
-
     private readonly IMapper _mapper;
-    private readonly IUserRepository _userManager;
+    private readonly IUserRepository _userRepository;
     private readonly IRoleRepository _roleRepository;
+    private readonly IAuthenticationService _authService;
 
     public RegistrationControllerBase(ILogger<UserController> logger, IMapper mapper,
-        IUserRepository userManager, IRoleRepository roleRepository)
+        IUserRepository userRepository, IRoleRepository roleRepository, IAuthenticationService authService )
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+        _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
         _roleRepository = roleRepository ?? throw new ArgumentNullException(nameof(roleRepository));
+        _authService = authService ?? throw new ArgumentNullException(nameof(authService));
     }
 
     protected async Task<IActionResult> RegisterNewUserWithRoles(NewUserDto newUser, IEnumerable<string> roles)
     {
         var user = _mapper.Map<User>(newUser);
-        IdentityResult result = await _userManager.CreateAsync(user);
+        
+        var result = await _userRepository.CreateAsync(user);
         if (!result.Succeeded)
         {
             foreach (var error in result.Errors)
             {
                 ModelState.TryAddModelError(error.Code, error.Description);
             }
+            
             _logger.LogInformation("Failed to add user {NewUser}", user.UserName);
             return BadRequest(ModelState);
         }
@@ -47,7 +51,7 @@ public class RegistrationControllerBase : ControllerBase
             var roleExists = await _roleRepository.RoleExistsAsync(role);
             if (roleExists)
             {
-                await _userManager.AddToRoleAsync(user, role);
+                await _userRepository.AddToRoleAsync(user, role);
                 _logger.LogInformation("Added role {AddedRole} to user: {Username}", role, user.UserName);
             }
             else
