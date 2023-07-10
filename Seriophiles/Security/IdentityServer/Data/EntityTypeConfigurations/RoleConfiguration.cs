@@ -1,10 +1,9 @@
-using System.Text;
 using IdentityServer.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IdentityServer.Extensions.EntityTypeConfigurations;
+namespace IdentityServer.Data.EntityTypeConfigurations;
 
 public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
 {
