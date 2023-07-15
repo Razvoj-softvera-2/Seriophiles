@@ -1,1 +1,23 @@
-<p>identity works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+<div *ngIf="user; else notLogged" class="profile-container">
+  <div class="profile-picture">
+    <img [src]="user.photo" alt="Profile Picture">
+  </div>
+  <div class="profile-details">
+    <h2>{{ user.username }}</h2>
+    <p>Name: {{ user.firstName }}</p>
+    <p>Email: {{ user.email }}</p>
+  </div>
+</div>
+
+<ng-template #notLogged>
+  <p>Please log</p>
+</ng-template>
+
+</body>
+</html>

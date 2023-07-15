@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+.profile-picture {
+  text-align: center;
+}
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.profile-details {
+  margin-top: 20px;
+}
+.profile-details h2 {
+  margin-bottom: 10px;
+}
+.profile-details p {
+  margin: 5px 0;
+}
