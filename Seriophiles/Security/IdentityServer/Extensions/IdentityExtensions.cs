@@ -27,7 +27,7 @@ public static class IdentityExtensions
 
     public static IServiceCollection ConfigureIdentity(this IServiceCollection services)
     {
-        //Identity configurations
+        //Identity configurationsIdentityExtensions
         services.AddIdentity<User, IdentityRole>(options =>
             {
                 //Password Options

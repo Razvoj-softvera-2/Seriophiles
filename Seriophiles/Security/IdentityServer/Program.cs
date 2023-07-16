@@ -13,12 +13,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Authentication for the rest
-builder.Services.AddAuthentication();
+// builder.Services.AddAuthentication();
+
+//Testing locally
+// builder.Configuration.AddJsonFile("appsettings.Development.json");
 
 
 //Extensions
 builder.Services.ConfigurePersistence(builder.Configuration);
 builder.Services.ConfigureIdentity();
+
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureInjections();
 builder.Services.ConfigureAutoMapper();

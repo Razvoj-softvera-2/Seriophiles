@@ -3,7 +3,7 @@
 services:
   
   mssql:
-#    image: mcr.microsoft.com/mssql/server:2022-latest
+   #image: mcr.microsoft.com/mssql/server:2022-latest
     build:
       context: .
       dockerfile: Mssql-Dockerfile

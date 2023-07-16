@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdentityServer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230526183043_AddedRolesToDb")]
+    [Migration("20230716173840_AddedRolesToDb")]
     partial class AddedRolesToDb
     {
         /// <inheritdoc />
@@ -24,6 +24,29 @@ namespace IdentityServer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("IdentityServer.Entity.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
 
             modelBuilder.Entity("IdentityServer.Entity.User", b =>
                 {
@@ -127,13 +150,13 @@ namespace IdentityServer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a87e4cd2-ac6e-44d9-bb38-c461ad8d96d7",
+                            Id = "7a902b52-79b2-46f3-abf5-82a0c121bce0",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "ada86dfd-5c23-4e33-a703-1d232ea83d81",
+                            Id = "0f3a550a-7207-4391-8989-880f97665596",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -245,6 +268,13 @@ namespace IdentityServer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("IdentityServer.Entity.RefreshToken", b =>
+                {
+                    b.HasOne("IdentityServer.Entity.User", null)
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -294,6 +324,11 @@ namespace IdentityServer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("IdentityServer.Entity.User", b =>
+                {
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }

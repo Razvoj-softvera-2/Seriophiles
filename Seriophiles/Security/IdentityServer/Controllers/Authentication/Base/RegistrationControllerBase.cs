@@ -30,7 +30,7 @@ public class RegistrationControllerBase : ControllerBase
     {
         var user = _mapper.Map<User>(newUser);
         
-        var result = await _userRepository.CreateAsync(user);
+        var result = await _userRepository.CreateAsync(user, newUser.Password);
         if (!result.Succeeded)
         {
             foreach (var error in result.Errors)

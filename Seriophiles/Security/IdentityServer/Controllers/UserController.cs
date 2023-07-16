@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Controllers;
 
-
+//not finished
 [Authorize]
 [Route("api/v1/[cotnroller]")]
 [ApiController]
