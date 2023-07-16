@@ -68,6 +68,21 @@ namespace Series.API.Controllers
             return show;
         }
 
+        [HttpPost("[action]/{id}")]
+        [ProducesResponseType(typeof(ActorDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<ActorDTO>> CreateActorById(int id)
+        {
+            var result = await _repository.CreateActorById(id);
+
+            if (result == false)
+                return BadRequest();
+
+            var actor = await _repository.GetActorById(id);
+
+            return actor;
+        }
+
         [HttpGet("[action]/{genre}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByGenre(string genre)

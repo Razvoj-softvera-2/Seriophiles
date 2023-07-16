@@ -83,5 +83,23 @@ namespace Series.API.Repositories
 
             return true;
         }
+
+        public async Task<bool> CreateActorById(int id)
+        {
+            var actor = await _TVShowContext.Actors.Find(actor => (actor.id == id)).FirstOrDefaultAsync();
+            var result = await TVMazeClient.FetchActorJson(id);
+
+            if (actor != null || result == null)
+                return false;
+            await _TVShowContext.Actors.InsertOneAsync(result);
+
+            return true;
+        }
+
+        public async Task<ActorDTO> GetActorById(int id)
+        {
+            var Actor = await _TVShowContext.Actors.Find(Actor => (Actor.id == id)).FirstOrDefaultAsync();
+            return _mapper.Map<ActorDTO>(Actor);
+        }
     }
 }

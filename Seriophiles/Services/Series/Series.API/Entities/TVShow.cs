@@ -13,7 +13,7 @@ namespace Series.API.Entities
         public string? site { get; set; }
         public string? language { get; set; }
         public List<SeasonDTO>? seasons { get; set; }
-        public string[]? cast { get; set; }
+        public List<CharacterDTO>? cast { get; set; }
         public string? summary { get; set; }
     }
 }

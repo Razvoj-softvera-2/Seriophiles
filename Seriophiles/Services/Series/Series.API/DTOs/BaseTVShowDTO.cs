@@ -1,6 +1,4 @@
-﻿using Series.API.DTOs;
-
-namespace Series.API.DTOs
+﻿namespace Series.API.DTOs
 {
     public class BaseTVShowDTO
     {
@@ -14,7 +12,7 @@ namespace Series.API.DTOs
         public string? language { get; set; }
         public string[]? genres { get; set; }
         public List<SeasonDTO>? seasons { get; set; }
-        public string[]? cast { get; set; }
+        public List<CharacterDTO>? cast { get; set; }
         public string? summary { get; set; }
     }
 }

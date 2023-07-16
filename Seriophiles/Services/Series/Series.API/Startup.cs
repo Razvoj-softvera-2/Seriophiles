@@ -32,6 +32,7 @@ namespace Series.API
             services.AddAutoMapper(configuration =>
             {
                 configuration.CreateMap<TVShow, TVShowDTO>().ReverseMap();
+                configuration.CreateMap<Actor, ActorDTO>().ReverseMap();
             });
 
             
