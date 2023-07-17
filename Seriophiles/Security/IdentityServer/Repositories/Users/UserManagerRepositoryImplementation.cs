@@ -1,5 +1,7 @@
 using IdentityServer.Entity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IdentityServer.Repositories.Users;
 
@@ -60,5 +62,10 @@ public class UserManagerRepositoryImplementation : IUserRepository
     public async Task<IList<string>> GetRolesAsync(User user)
     {
         return await _userManager.GetRolesAsync(user);
+    }
+
+    public IQueryable<User> GetUsers()
+    {
+        return _userManager.Users;
     }
 }

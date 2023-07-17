@@ -12,6 +12,7 @@ public static class AutoMapperConfiguration
         {
             cfg.CreateMap<User, NewUserDto>().ReverseMap();
             cfg.CreateMap<User, UserCredentialsDto>().ReverseMap();
+            cfg.CreateMap<User, UserDetailsDto>().ReverseMap();
         });
 
         return config.CreateMapper();

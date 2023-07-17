@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
+using IdentityServer.DTOs;
 using IdentityServer.Entity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Repositories.Users;
 
@@ -16,4 +18,7 @@ public interface IUserRepository
     Task<IdentityResult> CreateAsync(User user);
     Task<bool> CheckPasswordAsync(User user, string password);
     Task<IList<string>> GetRolesAsync(User user);
+
+    IQueryable<User> GetUsers();
+
 }
