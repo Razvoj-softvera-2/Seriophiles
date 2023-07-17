@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+    mssql:
+      container_name: mssql
+      environment:
+        - SA_PASSWORD=Seriophile123456
+        - ACCEPT_EULA=Y
+      restart: always
+      ports:
+        - "1433:1433"
+      volumes:
+        - mssqlsystem:/var/opt/mssql/
+        - mssqldata:/var/opt/sqlserver/data
+        - mssqllog:/var/opt/sqlserver/log
+        - mssqlbackup:/var/opt/sqlserver/backup  
+  
+    identityserver:
+        container_name: identity-server
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=Seriophile123456;TrustServerCertificate=true;"
+        depends_on:
+          - mssql
+        ports:
+          - "4000:80"

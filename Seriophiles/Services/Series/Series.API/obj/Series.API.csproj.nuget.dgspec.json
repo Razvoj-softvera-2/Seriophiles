@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {}
+    "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {
+    "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
+        "projectUniqueName": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
         "projectName": "Series.API",
-        "projectPath": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
-        "packagesPath": "C:\\Users\\ivana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ivana\\Desktop\\Razvoj\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\obj\\",
+        "projectPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\Series.API.csproj",
+        "packagesPath": "C:\\Users\\mr161\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mr161\\Workspace\\Fax\\RS2\\Seriophiles\\Seriophiles\\Services\\Series\\Series.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ivana\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\mr161\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,10 +54,29 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.20, 6.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.20, 6.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.20, 6.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.20, 6.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
