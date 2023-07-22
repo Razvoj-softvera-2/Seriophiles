@@ -1,6 +1,5 @@
 import { Genre } from "./genres.enum";
 import {IEpisode} from "./episode";
-import {IComment} from "./comment";
 
 interface IRating {
   average: number
@@ -18,7 +17,6 @@ export interface ITvShow{
   language?: string,
   rating?: IRating,
   summary?: string,
-  reviews: IComment[],
   episodes: IEpisode[],
   cast?: {[key: string]: string}
 }

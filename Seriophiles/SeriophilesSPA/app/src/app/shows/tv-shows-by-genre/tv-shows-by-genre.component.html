@@ -1,16 +1,18 @@
 <div *ngIf="tvShowsByGenre.length>0; else notExist" class="cardList hover-zoom" fxLayout="column" fxLayoutGap="32px">
-  <mat-card  *ngFor="let show of tvShowsByGenre">
-    <mat-card-header>
-      <mat-card-title>{{ show.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content *ngIf="show.endDate; else stillGoing">
-      <p>{{ show.startDate }} - {{ show.endDate }}</p>
-    </mat-card-content>
-    <ng-template #stillGoing>
-      <mat-card-content >
-        <p>{{ show.startDate }} - </p>
+  <mat-card  *ngFor="let show of tvShowsByGenre" >
+    <div [routerLink]="['/shows',show.id]">
+      <mat-card-header>
+        <mat-card-title>{{ show.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="show.ended; else stillGoing">
+        <p>{{ show.premiered }} - {{ show.ended }}</p>
       </mat-card-content>
-    </ng-template>
+      <ng-template #stillGoing>
+        <mat-card-content >
+          <p>{{ show.premiered }} - </p>
+        </mat-card-content>
+      </ng-template>
+    </div>
   </mat-card>
 </div>
 
