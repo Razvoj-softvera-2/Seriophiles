@@ -18,5 +18,5 @@ export interface ITvShow{
   rating?: IRating,
   summary?: string,
   episodes: IEpisode[],
-  cast?: {[key: string]: string}
+  cast: {[key: string]: string}
 }

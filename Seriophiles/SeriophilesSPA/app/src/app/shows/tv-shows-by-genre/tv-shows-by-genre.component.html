@@ -1,6 +1,6 @@
 <div *ngIf="tvShowsByGenre.length>0; else notExist" class="cardList hover-zoom" fxLayout="column" fxLayoutGap="32px">
   <mat-card  *ngFor="let show of tvShowsByGenre" >
-    <div [routerLink]="['/shows',show.id]">
+    <div [routerLink]="['/shows/info',show.id]">
       <mat-card-header>
         <mat-card-title>{{ show.name }}</mat-card-title>
       </mat-card-header>
