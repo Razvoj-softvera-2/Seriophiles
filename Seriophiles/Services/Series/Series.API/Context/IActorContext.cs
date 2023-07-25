@@ -3,8 +3,8 @@ using Series.API.Entities;
 
 namespace Series.API.Context
 {
-    public interface ITVShowContext
+    public interface IActorContext
     {
-        IMongoCollection<TVShow> TVShows { get; }
+        IMongoCollection<Actor> Actors { get; }
     }
 }

@@ -27,7 +27,9 @@ namespace Series.API
             });
 
             services.AddScoped<ITVShowContext, TVShowContext>();
+            services.AddScoped<IActorContext, ActorContext>();
             services.AddScoped<ITVShowRepository, TVShowRepository>();
+            services.AddScoped<IActorRepository, ActorRepository>();
 
             services.AddAutoMapper(configuration =>
             {

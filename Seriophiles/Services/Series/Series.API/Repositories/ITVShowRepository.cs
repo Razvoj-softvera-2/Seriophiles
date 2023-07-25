@@ -6,7 +6,6 @@ namespace Series.API.Repositories
     public interface ITVShowRepository
     {
         Task<TVShowDTO> GetTVShowById(int id);
-        Task<ActorDTO> GetActorById(int id);
         Task<IEnumerable<TVShowDTO>> GetAllTVShows();
         Task<IEnumerable<TVShowDTO>> GetTVShowByTitle(string name);
         Task<IEnumerable<TVShowDTO>> GetTVShowsByYear(int year);
@@ -15,6 +14,7 @@ namespace Series.API.Repositories
         Task<IEnumerable<TVShowDTO>> GetTVShowsByLanguage(string language);
         Task<bool> DeleteTVShow(int id);
         Task<bool> CreateTVShowById(int id);
-        Task<bool> CreateActorById(int id);
+        Task<bool> CreateRandomTVShows(int number);
+
     }
 }

@@ -58,10 +58,8 @@ namespace Series.API.TVMaze
 				show = prepareShow(json);
 				var showCast = new JProperty("cast", JToken.FromObject(castList));
 				show.Add(showCast);
-			}
+			
 
-			using (var client = new HttpClient())
-			{
 				var responseSeasonsTask = client
 					.GetAsync($"{_url}/shows/{id}/seasons")
 					.ConfigureAwait(false);
@@ -150,7 +148,6 @@ namespace Series.API.TVMaze
 					.GetAsync($"{_url}/people/{id}/castcredits")
 					.ConfigureAwait(false);
 
-				Console.WriteLine("9");
 
 				var responseChar = await responseCharsTask;
 				if (responseChar.IsSuccessStatusCode)
@@ -160,12 +157,10 @@ namespace Series.API.TVMaze
 
 					List<CharacterDTO> castList = new List<CharacterDTO>();
 
-					Console.WriteLine("8");
 					foreach (var c in chars)
 					{
 						CharacterDTO character = new CharacterDTO();
 						var char_id = c._links.character.href.ToString().Split("/");
-						Console.WriteLine(char_id[char_id.Length - 1]);
 						character.id = Int32.Parse(char_id[char_id.Length-1]);
 						character.actor_id = id;
 						var char_show_id = c._links.show.href.ToString().Split("/");
@@ -176,7 +171,6 @@ namespace Series.API.TVMaze
 							.GetAsync($"{_url}/characters/{character.id}")
 							.ConfigureAwait(false);
 
-						Console.WriteLine("1");
 
 						var responseCharName = await responseCharsNameTask;
 						if (responseCharName.IsSuccessStatusCode)
@@ -187,19 +181,11 @@ namespace Series.API.TVMaze
 
 							var index = Array.IndexOf(cn, "name");
 							character.name = cn[index+2];
-
-							foreach (var char_name in cn)
-                            {
-								Console.WriteLine(char_name);
-                            }
-							
-							Console.WriteLine(index);
 						}
 						castList.Add(character);				
 					}
 					actor.characters = castList;
 				}
-				Console.WriteLine("3");
 				return actor;
 
 			}

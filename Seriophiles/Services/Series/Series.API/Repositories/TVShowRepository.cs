@@ -84,22 +84,41 @@ namespace Series.API.Repositories
             return true;
         }
 
-        public async Task<bool> CreateActorById(int id)
+        public async Task<bool> CreateRandomTVShows(int number)
         {
-            var actor = await _TVShowContext.Actors.Find(actor => (actor.id == id)).FirstOrDefaultAsync();
-            var result = await TVMazeClient.FetchActorJson(id);
+            Random random = new Random();
+            List<int> values = new List<int>();
+            for (int i = 0; i < number; ++i)
+            {
+                var rand_num = random.Next(0,50000);
+                if (values.Contains(rand_num))
+                {
+                    if (i > 0)
+                        i = i - 1;
+                    continue;
+                }
+                values.Add(rand_num);
+            }
 
-            if (actor != null || result == null)
-                return false;
-            await _TVShowContext.Actors.InsertOneAsync(result);
+
+            for (int i = 0; i < number; i++)
+            {
+                var tvshow = await _TVShowContext.TVShows.Find(show => (show.id == values[i])).FirstOrDefaultAsync();
+                if (tvshow != null)
+                {
+                    continue;
+                }
+                var result = await TVMazeClient.FetchTVShowJson(values[i]);
+
+                if (tvshow != null || result == null)
+                    return false;
+
+                await _TVShowContext.TVShows.InsertOneAsync(result.ToObject<TVShow>());
+            }
+
 
             return true;
         }
 
-        public async Task<ActorDTO> GetActorById(int id)
-        {
-            var Actor = await _TVShowContext.Actors.Find(Actor => (Actor.id == id)).FirstOrDefaultAsync();
-            return _mapper.Map<ActorDTO>(Actor);
-        }
     }
 }

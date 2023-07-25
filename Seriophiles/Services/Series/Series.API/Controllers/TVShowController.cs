@@ -8,11 +8,11 @@ namespace Series.API.Controllers
     [Route("api/v1/[controller]")]
     public class TVShowController : ControllerBase
     {
-        private readonly ITVShowRepository _repository;
+        private readonly ITVShowRepository _showRepository;
 
         public TVShowController(ITVShowRepository repository)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _showRepository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         [HttpGet("{id}", Name = "GetTVShow")]
@@ -20,7 +20,7 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<TVShowDTO>> GetTVShowById(int id)
         {
-            var tvshow = await _repository.GetTVShowById(id);
+            var tvshow = await _showRepository.GetTVShowById(id);
             if (tvshow == null)
             {
                 return NotFound();
@@ -32,7 +32,7 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetAllTVShows()
         {
-            var tvshows = await _repository.GetAllTVShows();
+            var tvshows = await _showRepository.GetAllTVShows();
             return Ok(tvshows);
         }
 
@@ -40,7 +40,7 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowByTitle(string name)
         {
-            var tvshow = await _repository.GetTVShowByTitle(name);
+            var tvshow = await _showRepository.GetTVShowByTitle(name);
             return Ok(tvshow);
         }
 
@@ -48,46 +48,44 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByYear(int year)
         {
-            var tvshows = await _repository.GetTVShowsByYear(year);
+            var tvshows = await _showRepository.GetTVShowsByYear(year);
             return Ok(tvshows);
         }
         
+
+        [HttpPost("[action]")]
+        [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<TVShowDTO>> CreateRandomTVShows(int number)
+        {
+            var result = await _showRepository.CreateRandomTVShows(number);
+
+            if (result == false)
+                return BadRequest();
+            return Ok(result);
+
+        }
 
         [HttpPost("[action]/{id}")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<TVShowDTO>> CreateTVShowById(int id)
         {
-            var result = await _repository.CreateTVShowById(id);
+            var result = await _showRepository.CreateTVShowById(id);
 
             if (result == false)
                 return BadRequest();
 
-            var show = await _repository.GetTVShowById(id);
+            var show = await _showRepository.GetTVShowById(id);
 
             return show;
-        }
-
-        [HttpPost("[action]/{id}")]
-        [ProducesResponseType(typeof(ActorDTO), StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ActorDTO>> CreateActorById(int id)
-        {
-            var result = await _repository.CreateActorById(id);
-
-            if (result == false)
-                return BadRequest();
-
-            var actor = await _repository.GetActorById(id);
-
-            return actor;
         }
 
         [HttpGet("[action]/{genre}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByGenre(string genre)
         {
-            var shows = await _repository.GetTVShowsByGenre(genre);
+            var shows = await _showRepository.GetTVShowsByGenre(genre);
             return Ok(shows);
         }
 
@@ -95,7 +93,7 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByLanguage(string language)
         {
-            var shows = await _repository.GetTVShowsByLanguage(language);
+            var shows = await _showRepository.GetTVShowsByLanguage(language);
             return Ok(shows);
         }
 
@@ -104,7 +102,7 @@ namespace Series.API.Controllers
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteTVShow(int id)
         {
-            await _repository.DeleteTVShow(id);
+            await _showRepository.DeleteTVShow(id);
             return Ok();
         }
 
