@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import {AppState, IAppState} from "./app-state";
 import {BehaviorSubject, Observable} from "rxjs";
-import {IUser} from "../../identity/domain/models/user";
+import {LocalStorageService} from "../local-storage/local-storage.service";
+import {LocalStorageKeys} from "../local-storage/local-storage-keys";
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,10 @@ export class AppStateService{
   private appState: IAppState = new AppState();
   private appStateSubject: BehaviorSubject<IAppState> = new BehaviorSubject<IAppState>(this.appState);
   private appStateObservable: Observable<IAppState> = this.appStateSubject.asObservable();
+
+  constructor(private  localStorageService: LocalStorageService) {
+    this
+  }
 
   public getAppState(): Observable<IAppState> {
     return this.appStateObservable;
@@ -36,9 +41,26 @@ export class AppStateService{
     this.appStateSubject.next(this.appState);
   }
 
+  public setAccessToken(accessToken: string): void {
+    this.appState = this.appState.clone();
+  }
 
-
-
+  private restoreFromLocalStorage(): void {
+    const appState: IAppState | null = this.localStorageService.get(LocalStorageKeys.AppState);
+    if (appState !== null) {
+      this.appState = new AppState(
+        appState.accessToken,
+        appState.refreshToken,
+        appState.username,
+        appState.email,
+        appState.role,
+        appState.firstName,
+        appState.lastName,
+        appState.userId
+      );
+      this.appStateSubject.next(this.appState);
+    }
+  }
 
 
 }
