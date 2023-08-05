@@ -7,9 +7,10 @@ import { NavComponent } from './nav/nav.component';
 import { RouterOutlet } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from "@angular/material/list";
-import {MatToolbarModule} from "@angular/material/toolbar";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import {IdentityModule} from "./identity/identity.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    IdentityModule
   ],
   providers: [],
   bootstrap: [AppComponent]
