@@ -1,0 +1,22 @@
+﻿version: '3.8'
+
+services:
+  
+  mssql:
+   #image: mcr.microsoft.com/mssql/server:2022-latest
+    build:
+      context: .
+      dockerfile: Mssql-Dockerfile
+    
+  
+  identityserver:
+    image: ${DOCKER_REGISTRY-}identityserver
+    build:
+      context: .
+      dockerfile: Security/IdentityServer/Dockerfile
+
+volumes:
+  mssqlsystem:
+  mssqldata:
+  mssqllog:
+  mssqlbackup:
