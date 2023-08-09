@@ -7,7 +7,7 @@ namespace Series.API.Context
     {
         public ActorContext(IConfiguration configuration)
         {
-            var client = new MongoClient("mongodb://localhost:27017");
+            var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             var TVShowsDatabase = client.GetDatabase("TVShowsDB");
             Actors = TVShowsDatabase.GetCollection<Actor>("Actors");
         }

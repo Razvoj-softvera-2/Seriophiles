@@ -15,8 +15,19 @@ services:
       context: .
       dockerfile: Security/IdentityServer/Dockerfile
 
+  mongodb:
+    image: mongo
+
+  tvshow.api:
+    image: ${DOCKER_REGISTRY-}tvshowapi
+    build:
+      context: .
+      dockerfile: Services/Series/Series.API/Dockerfile
+
 volumes:
   mssqlsystem:
   mssqldata:
   mssqllog:
   mssqlbackup:
+  mongo_data:
+  tvshow_data:
