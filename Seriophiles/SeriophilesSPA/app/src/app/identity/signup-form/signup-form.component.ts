@@ -26,12 +26,13 @@ export class SignupFormComponent {
   }
 
   public onSignupFormSubmit(): void {
-    if(this.signupForm.controls['fistname'].invalid){
+
+    if(this.signupForm.controls['firstName'].invalid){
       window.alert('firstname invalid');
       return;
     }
 
-    if(this.signupForm.controls['lastname'].invalid){
+    if(this.signupForm.controls['lastName'].invalid){
       window.alert('lastname invalid');
       return;
     }
@@ -51,7 +52,9 @@ export class SignupFormComponent {
       return;
     }
 
-    if(this.signupForm.get('password') !== this.signupForm.get('confirmPassword')){
+
+
+    if(this.signupForm.value.password !== this.signupForm.value.confirmPassword){
       window.alert('Passwords doesnt match')
     }
 
