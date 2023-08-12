@@ -1,5 +1,5 @@
 import {Role} from "./role";
-import {IUser} from "../../identity/domain/models/user";
+import {IUser} from "../../identity/domain/models/IUser";
 
 export interface IAppState{
   username?: string;

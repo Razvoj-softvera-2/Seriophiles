@@ -1,45 +1,45 @@
 <mat-card>
   <mat-card-title>Sign up</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignupFormSubmit()" >
       <p>
         <mat-form-field>
-          <input type="text" matInput>
+          <input type="text" formControlName="firstname" matInput>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <input type="text" matInput>
-        </mat-form-field>
-      </p>
-
-      <p>
-        <mat-form-field>
-          <input type="password" matInput>
+          <input type="text" formControlName="lastname" matInput>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput>
+          <input type="password" formControlName="password" matInput>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="text" matInput>
+          <input type="password" formControlName="confirmPassoword" matInput>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="text" matInput>
+          <input type="text" formControlName="username" matInput>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="text" matInput>
+          <input type="text" formControlName="email" matInput>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="text" formControlName="phoneNumber" matInput>
         </mat-form-field>
       </p>
 

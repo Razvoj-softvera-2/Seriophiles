@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import {AppState, IAppState} from "./app-state";
 import {BehaviorSubject, Observable} from "rxjs";
-import {IUser} from "../../identity/domain/models/user";
+import {IUser} from "../../identity/domain/models/IUser";
 
 @Injectable({
   providedIn: 'root',

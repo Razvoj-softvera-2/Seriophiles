@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IUser } from "../models/user";
+import { IUser } from "../models/IUser";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ISignupRequest} from "../models/ISignupRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ export class UserService {
 
   public getUser(): Observable<IUser>{
     return this.httpClient.get<IUser>(this.url+"/1");
+  }
 
+  public signupUser(request: ISignupRequest){
+    return this.httpClient.post<ISignupRequest>(this.url,request)
   }
 
 }
