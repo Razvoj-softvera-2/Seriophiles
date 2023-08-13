@@ -98,6 +98,22 @@ public static class IdentityExtensions
         
         return services;
     }
+
+    public static IServiceCollection ConfigureMiscellaneousServices(this IServiceCollection services)
+    {
+        
+        //Cors
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy", builder => 
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader());
+        });
+        
+        
+        return services;
+    }
     
     
 }
