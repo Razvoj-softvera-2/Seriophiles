@@ -7,6 +7,6 @@
 Run this command from a root directory of the project
 
 ```bash
-  docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+  docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build
 ```
     
