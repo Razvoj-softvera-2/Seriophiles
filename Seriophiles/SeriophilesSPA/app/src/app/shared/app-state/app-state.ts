@@ -2,8 +2,10 @@ import {Role} from "./role";
 import {IUser} from "../../identity/domain/models/IUser";
 
 export interface IAppState{
+  accessToken?: string;
   username?: string;
   firstName?: string;
+  lastName?: string;
   email?: string;
   userId?: number;
   hasRole(role: Role): boolean;

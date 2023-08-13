@@ -8,8 +8,9 @@ import { RouterOutlet } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
+import { MatIconModule} from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 import {IdentityModule} from "./identity/identity.module";
 
 @NgModule({
@@ -26,6 +27,7 @@ import {IdentityModule} from "./identity/identity.module";
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
+    ReactiveFormsModule,
     IdentityModule
   ],
   providers: [],
