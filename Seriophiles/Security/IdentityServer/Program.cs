@@ -26,6 +26,7 @@ builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureInjections();
 builder.Services.ConfigureAutoMapper();
+builder.Services.ConfigureMiscellaneousServices();
 
 
 
