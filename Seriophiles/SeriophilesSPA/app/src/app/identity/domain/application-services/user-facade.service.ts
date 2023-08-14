@@ -25,7 +25,7 @@ export class UserFacadeService {
 
   }
 
-  public singupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string) : Observable<boolean> {
+  public signupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string) : Observable<boolean> {
     const request: ISignupRequest = { firstName, lastName, username, password, email, phoneNumber };
 
     return this.userService.signupUser(request).pipe(
