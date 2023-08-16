@@ -1,0 +1,9 @@
+﻿# Use the official NGINX base image
+FROM nginx:latest
+
+# Expose ports
+EXPOSE 80
+EXPOSE 443
+
+# Start NGINX
+CMD ["nginx", "-g", "daemon off;"]

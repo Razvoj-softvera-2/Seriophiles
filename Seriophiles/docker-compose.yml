@@ -7,16 +7,31 @@ services:
     build:
       context: .
       dockerfile: Mssql-Dockerfile
+    networks:
+      - internal_network
     
   
   identityserver:
-    image: ${DOCKER_REGISTRY-}identityserver
+   # image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
       dockerfile: Security/IdentityServer/Dockerfile
+    networks:
+      - internal_network
+
+  nginxserver:
+    build:
+      context: .
+      dockerfile: NginxDockerfile
+    networks:
+      - internal_network
+    
 
 volumes:
   mssqlsystem:
   mssqldata:
   mssqllog:
   mssqlbackup:
+    
+networks:
+  internal_network:
