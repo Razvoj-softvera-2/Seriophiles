@@ -9,11 +9,13 @@ import {ISignupRequest} from "../models/ISignupRequest";
 })
 export class UserService {
 
-  private readonly url : string = "http://localhost:4000/api/v1/AuthenticationUser/Register";
-  constructor(private httpClient: HttpClient){}
+  private readonly url : string = "https://localhost:4000/api/v1/AuthenticationUser/Register";
+  constructor(private httpClient: HttpClient){
+    
+  }
 
   public getUser(): Observable<IUser>{
-    return this.httpClient.get<IUser>(this.url+"/1");
+    return this.httpClient.get<IUser>("http://localhost:3000/users/1");
   }
 
   public signupUser(request: ISignupRequest){
