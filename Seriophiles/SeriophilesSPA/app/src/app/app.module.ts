@@ -35,3 +35,4 @@ import {IdentityModule} from "./identity/identity.module";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
