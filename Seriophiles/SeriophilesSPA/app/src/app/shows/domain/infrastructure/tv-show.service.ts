@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { ITvShow } from "../models/tvShow";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import {IComment} from "../models/comment";
+import { IReview} from "../models/review";
+import {IReviewRequest} from "../models/reviewRequest";
 
 
 @Injectable({
@@ -11,21 +12,28 @@ import {IComment} from "../models/comment";
 export class TvShowService {
 
 
-  private readonly url : string = "http://localhost:3000/shows";
+  private readonly showsUrl : string = "http://localhost:3000/shows";
+  private readonly reviewsUrl: string = "http://localhost:3000/reviews";
   constructor(private httpClient: HttpClient) {
   }
 
 
   public getTvShows(): Observable<ITvShow[]> {
-    return this.httpClient.get<ITvShow[]>(this.url);
+    return this.httpClient.get<ITvShow[]>(this.showsUrl);
   }
 
-  public getReviewsForTvShow(): Observable<IComment[]> {
-    return this.httpClient.get<IComment[]>(this.url);
+  public getReviewsForTvShow(showId: number): Observable<IReview[]> {
+    return this.httpClient.get<IReview[]>(this.showsUrl+showId+"/reviews");
   }
 
-  public addReviewForTvShow(comment: IComment): any {
-    return this.httpClient.post<IComment>(this.url,comment);
+  public addReviewForTvShow(reviewRequest: IReview): any {
+    return this.httpClient.post<IReview>(this.reviewsUrl,reviewRequest).subscribe(
+      response => {
+        console.log('Response:', response);
+      },
+      error => {
+        console.error('Error:', error);
+      });
   }
 
 

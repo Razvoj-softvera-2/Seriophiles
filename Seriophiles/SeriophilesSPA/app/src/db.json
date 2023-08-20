@@ -1,16 +1,36 @@
 {
   "users": [
-    {"id": 1,"firstName": "Petar","lastName": "Petrovic","username": "petarP97","email": "perap@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [],
+    {
+      "id": 1,
+      "firstName": "Petar",
+      "lastName": "Petrovic",
+      "username": "petarP97",
+      "email": "perap@gmail.com",
+      "favouriteGenres": [],
+      "watchlist": [],
+      "reviews": [],
       "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"
     },
-    {"id": 2,"firstName": "Marko","lastName": "Markovic","username": "mare123","email": "mare123@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [], "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"}
+    {
+      "id": 2,
+      "firstName": "Marko",
+      "lastName": "Markovic",
+      "username": "mare123",
+      "email": "mare123@gmail.com",
+      "favouriteGenres": [],
+      "watchlist": [],
+      "reviews": [],
+      "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"
+    }
   ],
   "shows": [
     {
       "id": 1,
       "name": "Breaking bad",
       "year": 2008,
-      "genres": ["Action"],
+      "genres": [
+        "Action"
+      ],
       "runtime": 45,
       "premiered": 2008,
       "ended": 2013,
@@ -25,13 +45,33 @@
         "Aaron Paul": "Jesse Pinkman",
         "Giancarlo Esposito": "Gustavo Fring",
         "Bob Odenkrik": "Saul Goodman"
-      }
+      },
+      "reviews": [
+        {
+          "username": "ana",
+          "rating": 10,
+          "comment": "Such a good show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "pera",
+          "rating": 9.5,
+          "comment": "Such a great show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Better Call Saul",
       "year": 2015,
-      "genres": ["Action"],
+      "genres": [
+        "Action"
+      ],
       "runtime": 45,
       "premiered": 2015,
       "ended": 2022,
@@ -46,13 +86,41 @@
         "Brian Cranston": "Walter White",
         "Aaron Paul": "Jesse Pinkman",
         "Giancarlo Esposito": "Gustavo Fring"
-      }
+      },
+      "reviews": [
+        {
+          "username": "ana",
+          "rating": 10,
+          "comment": "Such a good show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "pera",
+          "rating": 9.5,
+          "comment": "Such a great show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "stevica",
+          "rating": 10,
+          "comment": "Kim Wexler is best!!!",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        }
+      ]
     },
     {
       "id": 3,
       "name": "Juzni vetar",
       "year": 2020,
-      "genres": ["Drama"],
+      "genres": [
+        "Drama"
+      ],
       "runtime": 45,
       "premiered": 2020,
       "language": "Serbian",
@@ -64,7 +132,87 @@
       "cast": {
         "Milos Bikovic": "Maras",
         "Miodrag Radonjic": "Baca"
-      }
+      },
+      "reviews": []
+    }
+  ],
+  "reviews": [
+    {
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "showId": 2,
+      "username": "pera",
+      "rating": 9.5,
+      "comment": "Such a great show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "showId": 2,
+      "username": "stevica",
+      "rating": 10,
+      "comment": "Kim Wexler is best!!!",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 10,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 15,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show with sad ending",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 16,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show with sad ending",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 42997939,
+      "showId": 1,
+      "username": "ste1drag",
+      "rating": 10,
+      "comment": "dsdsadsa",
+      "isSpoiler": true,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 22074129,
+      "showId": 1,
+      "username": "ste1drag",
+      "rating": 10,
+      "comment": "",
+      "isSpoiler": true,
+      "upvotes": 0,
+      "downvotes": 0
     }
   ]
 }
