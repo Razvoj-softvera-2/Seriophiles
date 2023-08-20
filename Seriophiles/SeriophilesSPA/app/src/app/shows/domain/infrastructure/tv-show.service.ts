@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ITvShow } from "../models/tvShow";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import {IComment} from "../models/comment";
 
 
 @Injectable({
@@ -17,6 +18,14 @@ export class TvShowService {
 
   public getTvShows(): Observable<ITvShow[]> {
     return this.httpClient.get<ITvShow[]>(this.url);
+  }
+
+  public getReviewsForTvShow(): Observable<IComment[]> {
+    return this.httpClient.get<IComment[]>(this.url);
+  }
+
+  public addReviewForTvShow(comment: IComment): any {
+    return this.httpClient.post<IComment>(this.url,comment);
   }
 
 

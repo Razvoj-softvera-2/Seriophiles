@@ -13,7 +13,6 @@ export class UserService {
 
   public getUser(): Observable<IUser>{
     return this.httpClient.get<IUser>(this.url+"/1");
-
   }
 
 }
