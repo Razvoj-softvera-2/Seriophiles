@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Series.API.DTOs;
 using Series.API.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Series.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class TVShowController : ControllerBase
@@ -15,6 +17,7 @@ namespace Series.API.Controllers
             _showRepository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("{id}", Name = "GetTVShow")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status404NotFound)]
@@ -28,6 +31,7 @@ namespace Series.API.Controllers
             return Ok(tvshow);
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("[action]")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetAllTVShows()
@@ -36,6 +40,7 @@ namespace Series.API.Controllers
             return Ok(tvshows);
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("[action]/{name}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowByTitle(string name)
@@ -44,6 +49,7 @@ namespace Series.API.Controllers
             return Ok(tvshow);
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("[action]/{year}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByYear(int year)
@@ -51,8 +57,8 @@ namespace Series.API.Controllers
             var tvshows = await _showRepository.GetTVShowsByYear(year);
             return Ok(tvshows);
         }
-        
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost("[action]")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
@@ -66,6 +72,7 @@ namespace Series.API.Controllers
 
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost("[action]/{id}")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
@@ -81,6 +88,7 @@ namespace Series.API.Controllers
             return show;
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("[action]/{genre}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByGenre(string genre)
@@ -89,6 +97,7 @@ namespace Series.API.Controllers
             return Ok(shows);
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet("[action]/{language}")]
         [ProducesResponseType(typeof(IEnumerable<TVShowDTO>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<TVShowDTO>>> GetTVShowsByLanguage(string language)
@@ -97,7 +106,7 @@ namespace Series.API.Controllers
             return Ok(shows);
         }
 
-
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("[action]/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteTVShow(int id)
