@@ -17,6 +17,7 @@ import {IdentityModule} from "./identity/identity.module";
   declarations: [
     AppComponent,
     NavComponent
+    
   ],
   imports: [
     BrowserModule,
