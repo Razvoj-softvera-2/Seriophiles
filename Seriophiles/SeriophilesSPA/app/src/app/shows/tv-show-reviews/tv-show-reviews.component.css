@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.review {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.user-info {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.rating {
+  color: gold;
+}
+.comment {
+  margin-bottom: 10px;
+}
+.feedback {
+  display: flex;
+  align-items: center;
+}
+.vote-btn {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.upvote {
+  color: green;
+}
+.downvote {
+  color: red;
+}
+

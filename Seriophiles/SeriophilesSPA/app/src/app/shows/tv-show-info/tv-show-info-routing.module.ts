@@ -5,7 +5,7 @@ import {TvShowReviewsComponent} from "../tv-show-reviews/tv-show-reviews.compone
 
 const routes: Routes = [
   { path: '', component: TvShowInfoComponent },
-  //{ path: '/comments', component: TvShowReviewsComponent}
+  { path: 'reviews', component: TvShowReviewsComponent}
 ];
 
 @NgModule({

@@ -25,5 +25,9 @@ export class TvShowFacadeService {
     return this.tvShowService.addReviewForTvShow(reviewRequest);
   }
 
+  public getReviewsForTvShow(): any {
+
+  }
+
 
 }

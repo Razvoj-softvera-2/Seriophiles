@@ -3,7 +3,6 @@ import { ITvShow } from "../models/tvShow";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { IReview} from "../models/review";
-import {IReviewRequest} from "../models/reviewRequest";
 
 
 @Injectable({
@@ -23,7 +22,7 @@ export class TvShowService {
   }
 
   public getReviewsForTvShow(showId: number): Observable<IReview[]> {
-    return this.httpClient.get<IReview[]>(this.showsUrl+showId+"/reviews");
+    return this.httpClient.get<IReview[]>(this.reviewsUrl+'?showId='+showId);
   }
 
   public addReviewForTvShow(reviewRequest: IReview): any {

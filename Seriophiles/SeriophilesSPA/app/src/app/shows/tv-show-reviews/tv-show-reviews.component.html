@@ -1,1 +1,13 @@
-<p>tv-show-reviews works!</p>
+<div *ngFor="let review of reviews">
+  <div class="review">
+    <div class="user-info">{{review.username}}</div>
+    <div class="rating">Rating: {{review.rating}}</div>
+    <div class="comment">{{review.comment}}</div>
+    <div class="feedback">
+      <div class="vote-btn upvote">👍</div>
+      <div class="vote-btn downvote">👎</div>
+      <div>{{review.upvotes}} Upvotes</div>
+      <div>{{review.downvotes}} Downvotes</div>
+    </div>
+  </div>
+</div>
