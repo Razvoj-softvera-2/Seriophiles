@@ -16,8 +16,7 @@ import {IdentityModule} from "./identity/identity.module";
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
-    
+    NavComponent,
   ],
   imports: [
     BrowserModule,

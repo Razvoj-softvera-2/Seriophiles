@@ -1,1 +1,14 @@
-<p>fan-room works!</p>
+<div>
+  <div *ngFor="let poll of polls">
+    <p>{{poll.title}}</p>
+    <form>
+      <div *ngFor="let optionPoll of getOptionsForPoll(poll.id)">
+        <div class="option">
+          <input type="radio" [id]="optionPoll.id" name="color" value="red">
+          <label [for]="optionPoll.id">{{optionPoll.option}}</label>
+        </div>
+      </div>
+      <button type="submit">Vote</button>
+    </form>
+  </div>
+</div>
