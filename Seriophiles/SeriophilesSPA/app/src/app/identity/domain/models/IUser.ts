@@ -6,7 +6,5 @@ export interface IUser{
   id: number;
   firstName: string;
   lastName: string;
-  username: string;
-  reviews: Comment[];
   email: string;
 }

@@ -79,6 +79,12 @@ export class AppStateService{
 
   }
 
+  public clearAppState(): void {
+    this.localStorageService.clear(LocalStorageKeys.AppState);
+    this.appState = new AppState();
+    this.appStateSubject.next(this.appState);
+  }
+
   public setRoles( roles : string | string[]) : void {
     this.appState = this.appState.clone();
     this.appState.roles = roles;
