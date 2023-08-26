@@ -5,6 +5,7 @@ import {IPoll} from "./domain/models/IPoll";
 import {IPollOption} from "./domain/models/IPollOption";
 import {PostFacadeService} from "./domain/application-services/post/post-facade.service";
 import {PollFacadeService} from "./domain/application-services/poll/poll-facade.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-fan-room',
@@ -17,7 +18,8 @@ export class FanRoomComponent {
   public postComments: IPostComment[] = [];
   public polls: IPoll[] = [];
   public pollOptions: IPollOption[] = [];
-  constructor(private postService: PostFacadeService, private pollService: PollFacadeService) {
+  constructor(private postService: PostFacadeService, private pollService: PollFacadeService,
+  public router: Router) {
     this.postService.getAllPosts().subscribe((result) => {
       this.posts = result;
     });
@@ -26,22 +28,5 @@ export class FanRoomComponent {
       this.polls = result;
     })
   }
-
-  public getPostComments(postId: number): IPostComment[] {
-    this.postService.getCommentsForPost(postId).subscribe((result)=> {
-      this.postComments = result;
-    });
-
-    return this.postComments;
-  }
-
-  public getOptionsForPoll(pollId: number): IPollOption[] {
-    this.pollService.getOptionsForPoll(pollId).subscribe((result) => {
-      this.pollOptions = result;
-    });
-
-    return this.pollOptions;
-  }
-
 
 }

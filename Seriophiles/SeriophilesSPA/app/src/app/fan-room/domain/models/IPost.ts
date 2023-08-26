@@ -3,7 +3,7 @@ export interface IPost{
   "username": string;
   "title": string;
   "description": string;
-  "spoiler": boolean;
+  "isSpoiler": boolean;
   "upvotes": number;
   "downvotes": number;
 }

@@ -13,10 +13,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import {IdentityModule} from "./identity/identity.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+
   ],
   imports: [
     BrowserModule,

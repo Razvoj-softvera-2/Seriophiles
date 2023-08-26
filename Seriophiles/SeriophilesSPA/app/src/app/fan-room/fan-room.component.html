@@ -1,14 +1,18 @@
 <div>
   <div *ngFor="let poll of polls">
-    <p>{{poll.title}}</p>
-    <form>
-      <div *ngFor="let optionPoll of getOptionsForPoll(poll.id)">
-        <div class="option">
-          <input type="radio" [id]="optionPoll.id" name="color" value="red">
-          <label [for]="optionPoll.id">{{optionPoll.option}}</label>
-        </div>
-      </div>
-      <button type="submit">Vote</button>
-    </form>
+    <div [routerLink]="['/fanRoom/polls',poll.id]">
+      <p>{{poll.title}}</p>
+      <br>
+      <p>{{poll.username}}</p>
+    </div>
+  </div>
+</div>
+<div>
+  <div *ngFor="let post of posts">
+    <div [routerLink]="['/fanRoom/posts',post.id]">
+      <p>{{post.title}}</p>
+      <br>
+      <p>{{post.username}}</p>
+    </div>
   </div>
 </div>

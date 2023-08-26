@@ -1,1 +1,25 @@
-<p>post-list works!</p>
+<div class="post-container">
+  <h1 class="post-title">Create a Post</h1>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmitPost()">
+    <label for="postTitle">Title:</label>
+    <input type="text" formControlName="title" id="postTitle" name="postTitle" required><br>
+
+    <label for="postText">Text (optional):</label>
+    <textarea id="postText" name="postText" formControlName="description"  rows="4"></textarea><br>
+
+    <label class="spoiler-checkbox">
+      <input type="checkbox" formControlName="spoiler" id="spoilerCheckbox" name="spoilerCheckbox">
+      Mark as Spoiler
+    </label><br>
+    <button type="submit">Submit Post</button>
+  </form>
+</div>
+<div>
+  <div *ngFor="let post of posts">
+    <div [routerLink]="['/fanRoom/posts',post.id]">
+      <p>{{post.title}}</p>
+      <br>
+      <p>{{post.username}}</p>
+    </div>
+  </div>
+</div>
