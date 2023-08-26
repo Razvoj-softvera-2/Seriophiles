@@ -33,12 +33,13 @@ export class AuthenticationFacadeService {
         this.appStateService.setEmail(payload[JwtPayloadKeys.Email]);
         this.appStateService.setRoles(payload[JwtPayloadKeys.Role]);
 
-        return this.userService.getUserInfo();
+        return this.userService.getUserInfo(payload[JwtPayloadKeys.Username]);
       }),
       map((userDetails: IUser) => {
         this.appStateService.setFirstName(userDetails.firstName);
         this.appStateService.setLastName(userDetails.lastName);
         this.appStateService.setUserId(userDetails.id);
+        this.appStateService.setEmail(userDetails.email);
 
         return true;
       }),

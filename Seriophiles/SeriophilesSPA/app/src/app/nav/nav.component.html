@@ -1,8 +1,9 @@
-<mat-toolbar color="warn">
+<mat-toolbar color="warn" *ngIf="appState$ | async as appState">
   <span>Seriophile</span>
   <span class="spacer"></span>
   <li mat-list-item [routerLink]="['/']">Home</li>
   <li mat-list-item [routerLink]="['/shows']">Shows</li>
-  <li mat-list-item [routerLink]="['/identity']">Profile</li>
+  <li mat-list-item [routerLink]="['/identity']" *ngIf="userLoggedOut(appState)">Register</li>
+  <li mat-list-item [routerLink]="['/identity',appState.userId]" *ngIf="!userLoggedOut(appState)">Register</li>
 </mat-toolbar>
 

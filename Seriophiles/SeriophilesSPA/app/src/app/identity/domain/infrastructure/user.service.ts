@@ -15,8 +15,8 @@ export class UserService {
 
   }
 
-  public getUser(): Observable<IUser>{
-    return this.httpClient.get<IUser>("http://localhost:3000/users/1");
+  public getUser(username: string): Observable<IUser>{
+    return this.httpClient.get<IUser>(`http://localhost:3000/users/${username}`);
   }
 
   public signupUser(request: ISignupRequest){

@@ -11,14 +11,5 @@ export class IdentityComponent {
   public user: IUser | null = null;
   constructor(private userFacadeService: UserFacadeService) {
 
-    this.userFacadeService.getUserInfo().subscribe((result: boolean | IUser) => {
-      if(result != false){
-        this.user = result as IUser;
-      }
-    });
-
-    console.log(this.user)
-
-
   }
 }

@@ -12,17 +12,8 @@ export class UserFacadeService {
 
   constructor( private userService: UserService, private appStateService: AppStateService ) {}
 
-  public getUserInfo(): Observable<IUser> {
-    let user: IUser;
-
-    this.userService.getUser().subscribe((result: IUser) => {
-      user = result;
-      this.appStateService.setEmail(user.email);
-      this.appStateService.setUsername(user.username);
-    });
-
-    return this.userService.getUser();
-
+  public getUserInfo(username: string): Observable<IUser> {
+    return this.userService.getUser(username);
   }
 
   public signupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string) : Observable<boolean> {
