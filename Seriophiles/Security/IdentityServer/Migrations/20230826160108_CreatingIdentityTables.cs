@@ -3,14 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace IdentityServer.Migrations
 {
-    /// <inheritdoc />
     public partial class CreatingIdentityTables : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -182,11 +178,12 @@ namespace IdentityServer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "13b54d8a-e195-44e6-8fdc-343718d38f31", null, "Administrator", "ADMINISTRATOR" },
-                    { "331c1ea1-f653-4d8e-ab1a-1c36caec2410", null, "User", "USER" }
-                });
+                values: new object[] { "3927c431-0142-45da-afb6-cafe73afda64", "e5dc5189-5380-430e-a715-397c1e9ecd08", "Administrator", "ADMINISTRATOR" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "a6be4ad3-4e25-404c-8fed-34150b287d0a", "c8c5641d-f105-4994-a1c9-275fb23aa190", "User", "USER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -233,7 +230,6 @@ namespace IdentityServer.Migrations
                 column: "UserId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

@@ -1,9 +1,8 @@
-using IdentityServer.Configurations;
 using IdentityServer.Extensions;
-using IdentityServer.Repositories.Roles;
-using IdentityServer.Repositories.Users;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
