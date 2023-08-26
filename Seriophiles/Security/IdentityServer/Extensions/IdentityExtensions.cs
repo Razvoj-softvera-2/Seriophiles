@@ -8,7 +8,6 @@ using IdentityServer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServer.Extensions;
@@ -19,7 +18,9 @@ public static class IdentityExtensions
     {
         services.AddDbContext<ApplicationContext>(options =>
         {
+            Console.WriteLine(configuration.GetConnectionString("IdentityConnectionString") + "jebem ti majku u pola picke");
             options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"));
+            Console.WriteLine("Todor cava");
         });
 
         return services;
