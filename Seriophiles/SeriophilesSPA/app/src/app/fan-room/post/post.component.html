@@ -1,1 +1,31 @@
-<p>post works!</p>
+<div *ngIf="post">
+  <div class="post">
+    <div class="post-title">{{post.title}}</div>
+    <div class="post-user">Posted by: {{post.username}}</div>
+    <div class="post-votes">Upvotes: {{post.upvotes}} | Downvotes: {{post.downvotes}}</div>
+    <div class="post-text">
+      {{post.description}}
+    </div>
+    <form [formGroup]="addCommentForm" (ngSubmit)="onAddCommentSubmit()" id="algin-form">
+      <div class="form-group">
+        <h4>Leave a comment</h4>
+        <label>Message</label>
+        <textarea formControlName="comment" name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: aliceblue;"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" id="post" class="btn">Post Comment</button>
+      </div>
+    </form>
+    <div class="comments">
+      <div *ngFor="let postComment of postComments">
+        <div class="comment">
+          <div class="comment-user">{{postComment.username}}</div>
+          <div class="comment-votes">Upvotes: {{postComment.upvotes}} | Downvotes: {{postComment.downvotes}}</div>
+          <div class="comment-text">
+            {{postComment.comment}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

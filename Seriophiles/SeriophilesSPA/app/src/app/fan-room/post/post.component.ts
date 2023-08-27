@@ -15,7 +15,6 @@ export class PostComponent {
   public post: IPost | undefined;
   public addCommentForm: FormGroup;
   public postComments: IPostComment[] = [];
-
   constructor(private postService: PostFacadeService, private router: Router, private formBuilder: FormBuilder) {
     this.postService.getAllPosts().subscribe((result)=>{
       const id = Number.parseInt(this.router.url.substring(this.router.url.lastIndexOf('/')+1));
@@ -26,14 +25,17 @@ export class PostComponent {
       comment: ['', [Validators.minLength(4)]],
     });
 
+    this.postComments = this.getPostComments( Number.parseInt(this.router.url.substring(this.router.url.lastIndexOf('/')+1)));
+
   }
 
   public getPostComments(postId: number): IPostComment[] {
+    let postComments : IPostComment[] = [];
     this.postService.getCommentsForPost(postId).subscribe((result)=> {
-      this.postComments = result;
+      postComments = result;
     });
 
-    return this.postComments;
+    return postComments;
   }
 
   public onAddCommentSubmit(){

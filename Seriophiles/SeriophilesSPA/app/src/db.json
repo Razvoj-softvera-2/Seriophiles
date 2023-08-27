@@ -17,6 +17,15 @@
       "description": "After watching Better Call Saul, it seems like Mike was much more important to Gus than we thought in Breaking Bad, so this choice is out of my mind",
       "upvotes": 0,
       "downvotes": 0
+    },
+    {
+      "id": 584771,
+      "username": "ste1drag",
+      "title": "Is Breaking bad best show of all time",
+      "description": "Maybe Sopranos or BCS are close, but other than that I doubt that",
+      "isSpoiler": true,
+      "upvotes": 0,
+      "downvotes": 0
     }
   ],
   "discussion": [
@@ -49,6 +58,14 @@
       "postId": 2,
       "username": "ana",
       "comment": "Because Gus for first time gets too comfored!",
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 88969825,
+      "postId": 1,
+      "username": "stevica",
+      "comment": "It is what it is",
       "upvotes": 0,
       "downvotes": 0
     }
