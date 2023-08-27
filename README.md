@@ -13,4 +13,10 @@ Run this command from a root directory of the project
 ```bash
   docker-compose build --no-cache      
 ```
+
+
+### To delete all containers, iamges and volumes (All not just project related)
+```bash
+docker system prune --all --volumes
+```
     
