@@ -1,6 +1,6 @@
 export interface IPostComment{
   "id": number,
-  "postId"?g: number,
+  "postId"?: number,
   "username": string;
   "comment": string;
   "upvotes": number;
