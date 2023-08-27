@@ -20,14 +20,7 @@ export class UserService {
   }
 
   public signupUser(request: ISignupRequest){
-    return this.httpClient.post<ISignupRequest>(this.url,request).subscribe(
-      response => {
-        console.log('Response:', response);
-      },
-      error => {
-        console.error('Error:', error);
-      }
-    );
+    return this.httpClient.post<ISignupRequest>(this.url,request)
   }
 
   public loginUser(request: ILoginRequest){

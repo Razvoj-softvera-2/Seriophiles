@@ -16,10 +16,19 @@ export class UserFacadeService {
     return this.userService.getUser(username);
   }
 
-  public signupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string)  {
+  public signupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string) : Observable<boolean> {
     const request: ISignupRequest = { firstName, lastName, username, password, email, phoneNumber };
 
-    return this.userService.signupUser(request);
+    return this.userService.signupUser(request).pipe(
+      map(() => {
+        return true;
+      }),
+      catchError((err) => {
+        console.log(err);
+        return of(false);
+      })
+    )
+
   }
 
 }

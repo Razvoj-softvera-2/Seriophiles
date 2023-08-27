@@ -58,6 +58,8 @@ export class SignupFormComponent {
       window.alert('Passwords doesnt match')
     }
 
-    this.userService.signupUser(this.signupForm.value.firstName, this.signupForm.value.lastName , this.signupForm.value.username, this.signupForm.value.password, this.signupForm.value.email, this.signupForm.value.phoneNumber);
+    this.userService.signupUser(this.signupForm.value.firstName, this.signupForm.value.lastName , this.signupForm.value.username, this.signupForm.value.password, this.signupForm.value.email, this.signupForm.value.phoneNumber).subscribe((success : boolean) => {
+      window.alert(`Signup ${success ? 'is' : 'is not'} successful!`);
+    })
   }
 }
