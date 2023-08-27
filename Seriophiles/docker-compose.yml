@@ -3,17 +3,16 @@
 services:
   
   mssql:
-   image: mcr.microsoft.com/mssql/server:2017-latest
-#    build:
-#      context: .
-#      dockerfile: Mssql-Dockerfile
-    
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+        - internal_network
   
-  identityserver:
+  identity-server:
     image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
-      dockerfile: Security/IdentityServer/Dockerfile
-
+      dockerfile: Security/IdentityServer/Dockerfiles/IdentityDockerfile
+    networks:
+      - internal_network
 volumes:
   mssqldata:

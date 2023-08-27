@@ -14,8 +14,8 @@ services:
       volumes:
         - mssqldata:/var/opt/mssql/data
   
-    identityserver:
-        container_name: identityserver
+    identity-server:
+        container_name: identity-server
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
           - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=MATF12345678rs2;TrustServerCertificate=true;"
@@ -26,7 +26,7 @@ services:
         ports:
           - "4000:80"
           
-    frontendserver:
+    angular-server:
       container_name: angular-server
       expose:
         - "4200"    
