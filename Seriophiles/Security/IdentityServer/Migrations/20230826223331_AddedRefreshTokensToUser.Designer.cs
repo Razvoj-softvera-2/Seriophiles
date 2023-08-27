@@ -12,18 +12,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdentityServer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230716173840_AddedRolesToDb")]
-    partial class AddedRolesToDb
+    [Migration("20230826223331_AddedRefreshTokensToUser")]
+    partial class AddedRefreshTokensToUser
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "6.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("IdentityServer.Entity.RefreshToken", b =>
                 {
@@ -150,13 +149,15 @@ namespace IdentityServer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7a902b52-79b2-46f3-abf5-82a0c121bce0",
+                            Id = "9baae547-84f6-404c-ad22-22df28ab5381",
+                            ConcurrencyStamp = "496b82a0-6b7e-4057-84c8-927a27867eb2",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "0f3a550a-7207-4391-8989-880f97665596",
+                            Id = "ee0c4df7-14c3-42a1-83f5-64bfdebea3a8",
+                            ConcurrencyStamp = "2978ad2c-f540-45a2-a2c0-4ccba1f7c2ca",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -168,7 +169,7 @@ namespace IdentityServer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -193,7 +194,7 @@ namespace IdentityServer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");

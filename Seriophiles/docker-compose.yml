@@ -3,44 +3,33 @@
 services:
   
   mssql:
-   #image: mcr.microsoft.com/mssql/server:2022-latest
-    build:
-      context: .
-      dockerfile: MssqlDockerfile
+    image: mcr.microsoft.com/mssql/server:2017-latest
     networks:
-      - internal_network
-    
+        - db_network
+        
   
-  identityserver:
-   # image: ${DOCKER_REGISTRY-}identityserver
+  identity-server:
+    image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
-      dockerfile: IdentityDockerfile
+      dockerfile: Dockerfiles/IdentityDockerfile
     networks:
-      - internal_network
-
-  frontendserver:
+      - db_network
+      - febe_network
+  
+  
+  angular-server:
     build:
       context: .
-      dockerfile: AngularDockerFile
+      dockerfile: Dockerfiles/AngularDockerFile
     networks:
-      - internal_network
-
-#
-#  nginxserver:
-#    build:
-#      context: .
-#      dockerfile: NginxDockerfile
-#    networks:
-#      - internal_network
-    
-
+      - febe_network
+      
+      
 volumes:
-  mssqlsystem:
   mssqldata:
-  mssqllog:
-  mssqlbackup:
 
-    
 networks:
-  internal_network:
+  db_network:
+  febe_network:
+  

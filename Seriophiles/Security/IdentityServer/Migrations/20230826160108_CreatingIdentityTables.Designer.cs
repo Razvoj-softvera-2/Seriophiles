@@ -4,6 +4,7 @@ using IdentityServer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdentityServer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230826160108_CreatingIdentityTables")]
+    partial class CreatingIdentityTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,15 +149,15 @@ namespace IdentityServer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9baae547-84f6-404c-ad22-22df28ab5381",
-                            ConcurrencyStamp = "496b82a0-6b7e-4057-84c8-927a27867eb2",
+                            Id = "3927c431-0142-45da-afb6-cafe73afda64",
+                            ConcurrencyStamp = "e5dc5189-5380-430e-a715-397c1e9ecd08",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "ee0c4df7-14c3-42a1-83f5-64bfdebea3a8",
-                            ConcurrencyStamp = "2978ad2c-f540-45a2-a2c0-4ccba1f7c2ca",
+                            Id = "a6be4ad3-4e25-404c-8fed-34150b287d0a",
+                            ConcurrencyStamp = "c8c5641d-f105-4994-a1c9-275fb23aa190",
                             Name = "User",
                             NormalizedName = "USER"
                         });

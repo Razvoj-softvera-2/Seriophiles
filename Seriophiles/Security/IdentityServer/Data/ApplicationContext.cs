@@ -9,7 +9,8 @@ public class ApplicationContext : IdentityDbContext<User>
 {
     public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
-    public ApplicationContext(DbContextOptions options) : base(options)
+    public ApplicationContext(DbContextOptions options) 
+        : base(options)
     {
     }
 

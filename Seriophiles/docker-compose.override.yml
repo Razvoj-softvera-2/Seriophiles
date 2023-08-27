@@ -4,7 +4,7 @@ services:
     mssql:
       container_name: mssql
       environment:
-        - SA_PASSWORD=Seriophile123456
+        - SA_PASSWORD=MATF12345678rs2
         - ACCEPT_EULA=Y
       restart: always
       expose:   #exposing ports internally
@@ -12,27 +12,22 @@ services:
       ports:
         - "1433:1433"
       volumes:
-        - mssqlsystem:/var/opt/mssql/
-        - mssqldata:/var/opt/sqlserver/data
-        - mssqllog:/var/opt/sqlserver/log
-        - mssqlbackup:/var/opt/sqlserver/backup  
+        - mssqldata:/var/opt/mssql/data
   
-    identityserver:
+    identity-server:
         container_name: identity-server
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
-          - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=Seriophile123456;TrustServerCertificate=true;"
+          - "ConnectionStrings:IdentityConnectionString=Server=mssql;Database=IdentityDb;User Id=sa;Password=MATF12345678rs2;TrustServerCertificate=true;"
         depends_on:
           - mssql
         expose:
-          - "4000"
+          - "80"
         ports:
           - "4000:80"
           
-    frontendserver:
-      container_name: angular-server
-      expose:
-        - "4200"    
+    angular-server:
+      container_name: angular-server   
       ports:
         - "3333:80"
         - "3334:443"
@@ -44,5 +39,7 @@ services:
 
 networks:
   internal_network:
+    driver: bridge
+  febe_network:
     driver: bridge
     
