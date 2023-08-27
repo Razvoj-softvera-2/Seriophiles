@@ -18,10 +18,17 @@ public static class IdentityExtensions
     {
         services.AddDbContext<ApplicationContext>(options =>
         {
-            Console.WriteLine(configuration.GetConnectionString("IdentityConnectionString") + "jebem ti majku u pola picke");
             options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"));
-            Console.WriteLine("Todor cava");
         });
+        // migration on startup logic
+        using (var serviceProvider = services.BuildServiceProvider())
+        {
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+                dbContext.Database.Migrate();
+            }
+        }
 
         return services;
     }
