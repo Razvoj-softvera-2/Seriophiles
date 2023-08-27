@@ -3,17 +3,33 @@
 services:
   
   mssql:
-   image: mcr.microsoft.com/mssql/server:2017-latest
-#    build:
-#      context: .
-#      dockerfile: Mssql-Dockerfile
-    
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+        - db_network
+        
   
-  identityserver:
+  identity-server:
     image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
-      dockerfile: Security/IdentityServer/Dockerfile
-
+      dockerfile: Dockerfiles/IdentityDockerfile
+    networks:
+      - db_network
+      - febe_network
+  
+  
+  angular-server:
+    build:
+      context: .
+      dockerfile: Dockerfiles/AngularDockerFile
+    networks:
+      - febe_network
+      
+      
 volumes:
   mssqldata:
+
+networks:
+  db_network:
+  febe_network:
+  
