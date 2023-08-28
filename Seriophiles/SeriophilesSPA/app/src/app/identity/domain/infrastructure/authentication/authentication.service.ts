@@ -11,7 +11,7 @@ import {ILogoutRequest} from "../../models/ILogoutRequest";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private readonly url: string = 'http://localhost:4000/api/v1/Authentication';
+  private readonly url: string = 'http://localhost:4000/api/v1/AuthenticationUser';
 
   constructor(private httpClient: HttpClient) {}
 

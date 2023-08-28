@@ -21,18 +21,21 @@ export class AuthenticationFacadeService {
     private userService: UserFacadeService
   ) {}
 
-  public login(username: string, password: string): Observable<boolean> {
-    const request: ILoginRequest = { loginName: username, password: password };
-
+  public login(UserName: string, Password: string): Observable<boolean> {
+    const request: ILoginRequest = { UserName, Password };
+    debugger;
     return this.authenticationService.login(request).pipe(
       switchMap((loginResponse: ILoginResponse) => {
         this.appStateService.setAccessToken(loginResponse.accessToken);
-
         const payload = this.jwtService.parsePayload(loginResponse.accessToken);
-        this.appStateService.setUsername(payload[JwtPayloadKeys.Username]);
+        const u = payload[JwtPayloadKeys.Username];
+        debugger;
+        this.appStateService.setUsername(u);
+        debugger;
         this.appStateService.setEmail(payload[JwtPayloadKeys.Email]);
+        debugger;
         this.appStateService.setRoles(payload[JwtPayloadKeys.Role]);
-
+        debugger;
         return this.userService.getUserInfo(payload[JwtPayloadKeys.Username]);
       }),
       map((userDetails: IUser) => {
@@ -44,6 +47,7 @@ export class AuthenticationFacadeService {
         return true;
       }),
       catchError((err) => {
+        debugger;
         console.log(err);
         this.appStateService.clearAppState();
         return of(false);

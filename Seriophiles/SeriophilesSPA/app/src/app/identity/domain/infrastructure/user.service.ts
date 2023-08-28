@@ -1,22 +1,33 @@
 import { Injectable } from '@angular/core';
 import { IUser } from "../models/IUser";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable, switchMap} from "rxjs";
 import {ISignupRequest} from "../models/ISignupRequest";
 import {ILoginRequest} from "../models/ILoginRequest";
+import {AppStateService} from "../../../shared/app-state/app-state-service";
+import {IAppState} from "../../../shared/app-state/app-state";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private readonly url : string = "https://localhost:4000/api/v1/AuthenticationUser/Register";
-  constructor(private httpClient: HttpClient){
+  private readonly url : string = "http://localhost:4000/api/v1/AuthenticationUser/Register";
+  constructor(private httpClient: HttpClient, private appStateService: AppStateService){
 
   }
 
   public getUser(username: string): Observable<IUser>{
-    return this.httpClient.get<IUser>(`http://localhost:3000/users/${username}`);
+    debugger;
+    return this.appStateService.getAppState().pipe(
+      switchMap((appState: IAppState) => {
+        const accessToken: string | undefined = appState.accessToken;
+
+        const headers: HttpHeaders = new HttpHeaders().append('Authorization',`Bearer ${accessToken}`);
+
+        return this.httpClient.get<IUser>(`http://localhost:4000/api/v1/User/${username}`, { headers });
+      })
+    );
   }
 
   public signupUser(request: ISignupRequest){
