@@ -1,4 +1,4 @@
 export interface IRefreshTokenRequest {
-  userName: string;
-  refreshToken: string;
+  UserName: string;
+  RefreshToken: string;
 }

@@ -4,10 +4,13 @@ import { JwtService } from "../../../../shared/jwt/jwt.service";
 import { UserFacadeService } from "../user-facade.service";
 import { AuthenticationService } from "../../infrastructure/authentication/authentication.service";
 import {ILoginRequest} from "../../models/ILoginRequest";
-import {catchError, map, Observable, of, switchMap} from "rxjs";
+import {catchError, map, Observable, of, switchMap, take} from "rxjs";
 import {ILoginResponse} from "../../models/ILoginResponse";
 import {JwtPayloadKeys} from "../../../../shared/jwt/jwt-payload-keys";
 import {IUser} from "../../models/IUser";
+import {IAppState} from "../../../../shared/app-state/app-state";
+import {IRefreshTokenRequest} from "../../models/IRefreshTokenRequest";
+import {IRefreshTokenResponse} from "../../models/IRefreshTokenResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -28,14 +31,9 @@ export class AuthenticationFacadeService {
       switchMap((loginResponse: ILoginResponse) => {
         this.appStateService.setAccessToken(loginResponse.accessToken);
         const payload = this.jwtService.parsePayload(loginResponse.accessToken);
-        const u = payload[JwtPayloadKeys.Username];
-        debugger;
-        this.appStateService.setUsername(u);
-        debugger;
+        this.appStateService.setUsername(payload[JwtPayloadKeys.Username]);
         this.appStateService.setEmail(payload[JwtPayloadKeys.Email]);
-        debugger;
         this.appStateService.setRoles(payload[JwtPayloadKeys.Role]);
-        debugger;
         return this.userService.getUserInfo(payload[JwtPayloadKeys.Username]);
       }),
       map((userDetails: IUser) => {
@@ -51,6 +49,28 @@ export class AuthenticationFacadeService {
         console.log(err);
         this.appStateService.clearAppState();
         return of(false);
+      })
+    );
+  }
+
+  public refreshToken(): Observable<string | null> {
+    return this.appStateService.getAppState().pipe(
+      take(1),
+      map((appState: IAppState) => {
+        const request: IRefreshTokenRequest = { UserName: appState.username as string, RefreshToken: appState.refreshToken as string };
+        return request;
+      }),
+      switchMap((request: IRefreshTokenRequest) => this.authenticationService.refreshToken(request)),
+      map((response: IRefreshTokenResponse) => {
+        this.appStateService.setAccessToken(response.AccessToken);
+        this.appStateService.setRefreshToken(response.RefreshToken);
+
+        return response.AccessToken;
+      }),
+      catchError((err) => {
+        console.log(err);
+        this.appStateService.clearAppState();
+        return of(null);
       })
     );
   }
