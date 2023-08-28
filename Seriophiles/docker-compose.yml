@@ -3,17 +3,19 @@
 services:
   
   mssql:
-   #image: mcr.microsoft.com/mssql/server:2022-latest
-    build:
-      context: .
-      dockerfile: Mssql-Dockerfile
-    
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+        - db_network
+        
   
-  identityserver:
+  identity-server:
     image: ${DOCKER_REGISTRY-}identityserver
     build:
       context: .
-      dockerfile: Security/IdentityServer/Dockerfile
+      dockerfile: Dockerfiles/IdentityDockerfile
+    networks:
+      - db_network
+      - febe_network
 
   mongodb:
     image: mongo
@@ -22,12 +24,24 @@ services:
     image: ${DOCKER_REGISTRY-}tvshowapi
     build:
       context: .
-      dockerfile: Services/Series/Series.API/Dockerfile
+      dockerfile: Dockerfiles/SeriesDockerfile
 
+  
+  
+  angular-server:
+    build:
+      context: .
+      dockerfile: Dockerfiles/AngularDockerFile
+    networks:
+      - febe_network
+      
+      
 volumes:
-  mssqlsystem:
   mssqldata:
-  mssqllog:
-  mssqlbackup:
   mongo_data:
   tvshow_data:
+
+networks:
+  db_network:
+  febe_network:
+  

@@ -1,9 +1,8 @@
-using IdentityServer.Configurations;
 using IdentityServer.Extensions;
-using IdentityServer.Repositories.Roles;
-using IdentityServer.Repositories.Users;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -26,6 +25,7 @@ builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureInjections();
 builder.Services.ConfigureAutoMapper();
+builder.Services.ConfigureMiscellaneousServices();
 
 
 
@@ -39,6 +39,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+app.UseCors("CorsPolicy");
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();

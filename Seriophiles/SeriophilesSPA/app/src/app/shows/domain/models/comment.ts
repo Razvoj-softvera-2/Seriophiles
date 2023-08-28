@@ -1,4 +1,4 @@
-import { IUser } from "../../../identity/domain/models/user";
+import { IUser } from "../../../identity/domain/models/IUser";
 
 export interface Comment{
   user: IUser,

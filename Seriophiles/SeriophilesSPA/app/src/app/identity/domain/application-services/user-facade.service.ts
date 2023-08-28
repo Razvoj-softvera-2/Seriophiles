@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { UserService } from "../infrastructure/user.service";
-import { IUser } from "../models/user";
+import { IUser } from "../models/IUser";
 import { AppStateService } from "../../../shared/app-state/app-state-service";
-import {Observable} from "rxjs";
+import {catchError, map, Observable, of} from "rxjs";
+import {ISignupRequest} from "../models/ISignupRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,20 @@ export class UserFacadeService {
     return this.userService.getUser();
 
   }
+
+  public signupUser(firstName: string, lastName: string, username: string, password: string, email: string, phoneNumber?: string) : Observable<boolean> {
+    const request: ISignupRequest = { firstName, lastName, username, password, email, phoneNumber };
+
+    return this.userService.signupUser(request).pipe(
+      map(() => {
+        return true;
+      }),
+      catchError((err) => {
+        console.log(err);
+        return of(false);
+      })
+    )
+
+  }
+
 }

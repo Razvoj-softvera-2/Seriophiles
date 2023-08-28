@@ -11,7 +11,7 @@ public class NewUserDto
     public string LastName { get; set; }
     
     [Required(ErrorMessage = "UserName is required")]
-    public string UserName { get; set; }
+    public string Username { get; set; }
     
     [Required(ErrorMessage = "Password is required")]
     public string Password { get; set; }

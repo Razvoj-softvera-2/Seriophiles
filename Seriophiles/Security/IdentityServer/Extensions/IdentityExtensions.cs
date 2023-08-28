@@ -8,7 +8,6 @@ using IdentityServer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServer.Extensions;
@@ -21,6 +20,15 @@ public static class IdentityExtensions
         {
             options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"));
         });
+        // migration on startup logic
+        using (var serviceProvider = services.BuildServiceProvider())
+        {
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+                dbContext.Database.Migrate();
+            }
+        }
 
         return services;
     }
@@ -95,6 +103,22 @@ public static class IdentityExtensions
     {
         var mapper = AutoMapperConfiguration.Initialize();
         services.AddSingleton(mapper);
+        
+        return services;
+    }
+
+    public static IServiceCollection ConfigureMiscellaneousServices(this IServiceCollection services)
+    {
+        
+        //Cors
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy", builder => 
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader());
+        });
+        
         
         return services;
     }

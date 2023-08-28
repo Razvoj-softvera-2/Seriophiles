@@ -62,3 +62,89 @@ GeneratedFiles/
 #Ignore idea folders 
 .idea/*
 .\.idea\*:
+
+
+# Ignore compiled output and intermediate files for Visual Studio
+*.obj
+*.exe
+*.dll
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.ipch
+*.zip
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Ignore compiled output for Rider (JetBrains IDE)
+.idea/
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore Angular build output
+/dist/
+
+# Ignore build output for other front-end frameworks (e.g., React, Vue)
+/build/
+/.next/
+/out/
+/public/
+
+# Ignore .NET Core build output
+/*.dll
+/*.exe
+*.pdb
+*.dll
+*.pdb
+*.user
+*.dll
+*.rsp
+obj/
+bin/
+*.cache
+.nuget/
+
+# Ignore TypeScript transpiled files
+*.js
+*.map
+*.js.map
+
+# Ignore packages
+*.nupkg
+*.paket.*
+
+# Ignore editor-specific files
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+*.userprefs
+*.suo
+*.user
+
+# Ignore NuGet package restore files
+*.nuget.props
+*.nuget.targets

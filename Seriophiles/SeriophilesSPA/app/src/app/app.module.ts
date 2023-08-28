@@ -11,6 +11,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule} from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
+import {IdentityModule} from "./identity/identity.module";
 
 @NgModule({
   declarations: [
@@ -26,9 +27,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IdentityModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
