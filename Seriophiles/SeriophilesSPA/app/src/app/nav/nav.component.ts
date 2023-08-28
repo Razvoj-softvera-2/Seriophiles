@@ -22,7 +22,6 @@ export class NavComponent implements OnInit{
 
   public userLoggedOut(appState: IAppState): boolean {
     const bool = appState.isEmpty();
-    debugger;
     return bool;
   }
 

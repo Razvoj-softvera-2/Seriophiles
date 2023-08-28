@@ -3,17 +3,23 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import {Observable, switchMap, take} from 'rxjs';
+import {BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError} from 'rxjs';
 import {AppStateService} from "../app-state/app-state-service";
 import {IAppState} from "../app-state/app-state";
+import {
+  AuthenticationFacadeService
+} from "../../identity/domain/application-services/authentication/authentication-facade.service";
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
 
-  private readonly whitelistUrls: string[] = ['/api/v1/Authentication/Login'];
-  constructor(private appStateService: AppStateService) {
+  private readonly whitelistUrls: string[] = ['/api/v1/AuthenticationUser/Login','/api/v1/AuthenticationUser/Refresh'];
+
+  private isRefreshing: boolean = false;
+  private refreshedAccessTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  constructor(private appStateService: AppStateService, private authenticationService: AuthenticationFacadeService) {
 
   }
 
@@ -28,6 +34,12 @@ export class AuthenticationInterceptor implements HttpInterceptor {
           request = this.addToken(request,appState.accessToken);
         }
         return next.handle(request);
+      }),
+      catchError((err) => {
+        if (err instanceof HttpErrorResponse && err.status === 401) {
+          return this.handle401Error(request, next);
+        }
+        return throwError(() => err);
       })
     )
   }
@@ -42,5 +54,30 @@ export class AuthenticationInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${accessToken}`,
       },
     });
+  }
+  private handle401Error(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    if (!this.isRefreshing) {
+      this.isRefreshing = true;
+      this.refreshedAccessTokenSubject.next(null);
+
+      return this.authenticationService.refreshToken().pipe(
+        switchMap((accessToken: string | null) => {
+          if (accessToken === null) {
+            return throwError(() => new Error('Refresh token flow failed'));
+          }
+
+          this.isRefreshing = false;
+          debugger;
+          this.refreshedAccessTokenSubject.next(accessToken);
+          return next.handle(this.addToken(request, accessToken));
+        })
+      );
+    }
+
+    return this.refreshedAccessTokenSubject.pipe(
+      filter((token: string | null) => token !== null),
+      take(1),
+      switchMap((accessToken: string | null) => next.handle(this.addToken(request, accessToken as string)))
+    );
   }
 }
