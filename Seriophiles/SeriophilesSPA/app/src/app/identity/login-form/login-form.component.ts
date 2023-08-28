@@ -36,7 +36,7 @@ export class LoginFormComponent {
       window.alert(`Login ${success ? 'is' : 'is not'} successful!`);
       this.loginForm.reset();
       if (success) {
-        this.routerService.navigate(['/identity', 'profile']);
+        this.routerService.navigate(['/user/profile']);
       }
     });
   }

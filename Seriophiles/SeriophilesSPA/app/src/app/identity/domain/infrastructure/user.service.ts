@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUser } from "../models/IUser";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, switchMap} from "rxjs";
+import {Observable, switchMap, take} from "rxjs";
 import {ISignupRequest} from "../models/ISignupRequest";
 import {ILoginRequest} from "../models/ILoginRequest";
 import {AppStateService} from "../../../shared/app-state/app-state-service";
@@ -20,6 +20,7 @@ export class UserService {
   public getUser(username: string): Observable<IUser>{
     debugger;
     return this.appStateService.getAppState().pipe(
+      take(1),
       switchMap((appState: IAppState) => {
         const accessToken: string | undefined = appState.accessToken;
 

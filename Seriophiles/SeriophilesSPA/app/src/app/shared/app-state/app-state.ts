@@ -65,7 +65,9 @@ export class AppState implements IAppState{
   }
 
   isEmpty(): boolean {
-    return this.accessToken === undefined && this.userId === undefined && this.username === undefined && this.roles === undefined && this.email === undefined && this.firstName === undefined && this.lastName === undefined ;
+    const bool = this.accessToken === undefined && this.userId === undefined && this.username === undefined && this.roles === undefined && this.email === undefined && this.firstName === undefined && this.lastName === undefined ;
+    debugger;
+    return bool;
   }
 
 
