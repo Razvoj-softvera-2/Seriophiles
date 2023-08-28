@@ -18,17 +18,9 @@ export class UserService {
   }
 
   public getUser(username: string): Observable<IUser>{
-    debugger;
-    return this.appStateService.getAppState().pipe(
-      take(1),
-      switchMap((appState: IAppState) => {
-        const accessToken: string | undefined = appState.accessToken;
 
-        const headers: HttpHeaders = new HttpHeaders().append('Authorization',`Bearer ${accessToken}`);
+    return this.httpClient.get<IUser>(`http://localhost:4000/api/v1/User/${username}`);
 
-        return this.httpClient.get<IUser>(`http://localhost:4000/api/v1/User/${username}`, { headers });
-      })
-    );
   }
 
   public signupUser(request: ISignupRequest){
