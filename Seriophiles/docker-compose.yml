@@ -16,6 +16,16 @@ services:
     networks:
       - db_network
       - febe_network
+
+  mongodb:
+    image: mongo
+
+  tvshow.api:
+    image: ${DOCKER_REGISTRY-}tvshowapi
+    build:
+      context: .
+      dockerfile: Dockerfiles/SeriesDockerfile
+
   
   
   angular-server:
@@ -28,6 +38,8 @@ services:
       
 volumes:
   mssqldata:
+  mongo_data:
+  tvshow_data:
 
 networks:
   db_network:
