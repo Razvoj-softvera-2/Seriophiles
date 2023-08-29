@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TvShowService } from "../infrastructure/tv-show.service";
-import { ITvShow } from "../models/tvShow";
 import { Observable } from "rxjs";
-import { IReview } from "../models/review";
-import {IReviewRequest} from "../models/reviewRequest";
+import { ITvShow } from "../models/ITvShow";
+
 
 
 @Injectable({
@@ -17,17 +16,16 @@ export class TvShowFacadeService {
     return this.tvShowService.getTvShows();
   }
 
-  public getReviewsFromTvShow(showId: number): Observable<IReview[]> {
-    return this.tvShowService.getReviewsForTvShow(showId);
+  public getTvShowById(showId: number): Observable<ITvShow> {
+    return this.tvShowService.getTvShowById(showId);
   }
 
-  public addReviewForTvShow(reviewRequest: IReview): any {
-    return this.tvShowService.addReviewForTvShow(reviewRequest);
+  public getTvShowsByYear(year: number): Observable<ITvShow[]> {
+    return this.tvShowService.getTvShowsByYear(year);
   }
 
-  public getReviewsForTvShow(): any {
-
+  public getTVShowsByGenre(genre: string): Observable<ITvShow[]> {
+    return this.tvShowService.getTVShowsByGenre(genre);
   }
-
 
 }
