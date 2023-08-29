@@ -10,7 +10,7 @@ services:
       expose:   #exposing ports internally
         - "1433"
       ports:
-        - "1433:1433"
+        - "1434:1433"
       volumes:
         - mssqldata:/var/opt/mssql/data
   
@@ -25,6 +25,27 @@ services:
           - "80"
         ports:
           - "4000:80"
+
+    
+    mongodb:
+        container_name: mongodb
+        restart: always
+        ports:
+          - "27017:27017"
+        volumes:
+          - mongo_data:/data/db
+
+    tvshow.api:
+        container_name: tvshow.api
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - "DatabaseSettings:ConnectionString=mongodb://mongodb:27017"
+        restart: always
+        depends_on:
+          - mongodb
+        ports:
+          - "8000:80"
+
           
     angular-server:
       container_name: angular-server   
