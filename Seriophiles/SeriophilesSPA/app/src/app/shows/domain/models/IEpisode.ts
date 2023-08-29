@@ -1,7 +1,8 @@
 export interface IEpisode{
   id: number,
+  number: number,
   name: string,
   season: number,
-  rating?: number,
-  description?: string
+  runtime: number,
+  summary: string
 }

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ITvShow } from "../models/tvShow";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { IReview} from "../models/review";
+import { ITvShow } from "../models/ITvShow";
 
 
 @Injectable({
@@ -13,27 +12,19 @@ export class TvShowService {
 
   private readonly showsUrl : string = "http://localhost:3000/shows";
   private readonly reviewsUrl: string = "http://localhost:3000/reviews";
+  private readonly seriesAPIUrl: string = "http://localhost:8000/api/v1/TVShow";
   constructor(private httpClient: HttpClient) {
   }
 
 
   public getTvShows(): Observable<ITvShow[]> {
-    return this.httpClient.get<ITvShow[]>(this.showsUrl);
+    return this.httpClient.get<ITvShow[]>(this.seriesAPIUrl+"/GetAllTVShows");
   }
 
-  public getReviewsForTvShow(showId: number): Observable<IReview[]> {
-    return this.httpClient.get<IReview[]>(this.reviewsUrl+'?showId='+showId);
+  public getTvShowById(showId: number): Observable<ITvShow> {
+    return this.httpClient.get<ITvShow>(this.seriesAPIUrl+"/TVShow"+showId);
   }
 
-  public addReviewForTvShow(reviewRequest: IReview): any {
-    return this.httpClient.post<IReview>(this.reviewsUrl,reviewRequest).subscribe(
-      response => {
-        console.log('Response:', response);
-      },
-      error => {
-        console.error('Error:', error);
-      });
-  }
 
 
 
