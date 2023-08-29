@@ -95,7 +95,7 @@ namespace Series.API.TVMaze
 
 
 
-		private static JObject prepareShow(JObject data)
+private static JObject prepareShow(JObject data)
 		{
 			var json = new JObject();
 
@@ -105,9 +105,6 @@ namespace Series.API.TVMaze
 
 			var runtime = data.Property("runtime").ToObject<string>() != "N/A" ? new JProperty("runtime", data.Property("runtime").ToObject<int>()) : new JProperty("runtime", null);
 			json.Add(runtime);
-
-			var genres = string.Join(string.Empty, data.Property("genres")) != "N/A" ? new JProperty("genres", string.Join(string.Empty, data.Property("genres")).Split(' ')) : new JProperty("genres", null);
-			json.Add(genres);
 
 			var premiered = string.Join(string.Empty, data.Property("premiered")) != "N/A" ? new JProperty("premiered", string.Join(string.Empty, data.Property("premiered"))) : new JProperty("premiered", null);
 			json.Add(premiered);
@@ -123,7 +120,30 @@ namespace Series.API.TVMaze
 
 			var summary = string.Join(string.Empty, data.Property("summary")) != "N/A" ? new JProperty("summary", string.Join(string.Empty, data.Property("summary"))) : new JProperty("summary", null);
 			json.Add(summary);
-
+			
+			if (string.Join(string.Empty, data.Property("genres")) == "N/A")
+            {
+				json.Add(new JProperty("genres", null));
+            }
+            else
+            {
+				var splited_g = data.Property("genres").ToString().Split('\"');
+				var list = new List<string>();
+				foreach (var one_genre in splited_g)
+				{
+					string no_com = one_genre.Replace(",", "");
+					string no_nl = no_com.Replace("\n", "");
+					string no_brr = no_nl.Replace("[", "");
+					string no_brl = no_brr.Replace("]", "");
+					string no_q = no_brl.Replace("\"", "");
+					if (no_q.Length > 0 && !no_q.Contains(' ') && no_q != "genres")
+                    {
+						list.Add(no_q);
+                    }
+				}
+				json.Add(new JProperty("genres", list));
+			}
+			/*json.Add(new JProperty("genres", data.Property("genres").ToString()));*/
 
 			return json;
 		}
