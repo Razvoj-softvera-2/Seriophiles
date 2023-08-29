@@ -71,7 +71,7 @@ namespace Series.API.Controllers
             return Ok(result);
 
         }
-
+        
         [Authorize(Roles = "Administrator")]
         [HttpPost("[action]/{id}")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
