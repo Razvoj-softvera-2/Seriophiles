@@ -9,14 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule} from "@angular/material/icon";
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import {IdentityModule} from "./identity/identity.module";
+import {AuthenticationInterceptor} from "./shared/interceptors/authentication.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,9 @@ import {IdentityModule} from "./identity/identity.module";
     ReactiveFormsModule,
     IdentityModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

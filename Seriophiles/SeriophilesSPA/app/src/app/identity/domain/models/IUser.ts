@@ -6,10 +6,5 @@ export interface IUser{
   id: number;
   firstName: string;
   lastName: string;
-  username: string;
-  favouriteGenres: Genre[];
-  watchlist: TvShow[];
-  reviews: Comment[];
   email: string;
-  photo: string;
 }
