@@ -1,2 +1,4 @@
-<p>{{episodeInfo.name}}</p>
-<p>{{episodeInfo.runtime}}</p>
+<div *ngIf="episodeInfo">
+  <p>{{episodeInfo.name}}</p>
+  <p>{{episodeInfo.runtime}}</p>
+</div>

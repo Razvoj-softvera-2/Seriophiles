@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="seasonInfo">
   <div *ngFor="let episode of seasonInfo.episodes">
     <a [routerLink]="['/episodes',episode.id]">Episode {{episode.name}}</a>
   </div>

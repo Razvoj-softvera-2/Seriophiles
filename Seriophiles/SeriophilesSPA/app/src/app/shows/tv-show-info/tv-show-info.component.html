@@ -7,8 +7,8 @@
     </li>
     <br>
     <p><b>Cast:</b></p>
-    <li *ngFor="let actor of Object.keys(tvShow.cast)">
-      {{actor}} as {{tvShow.cast[actor]}}
+    <li *ngFor="let actor of tvShow.cast">
+      {{actor.name}} as {{actor.actor_name}}
     </li>
     <br>
     <br>

@@ -1,0 +1,47 @@
+﻿version: '3.8'
+
+services:
+  
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+        - db_network
+        
+  
+  identity-server:
+    image: ${DOCKER_REGISTRY-}identityserver
+    build:
+      context: .
+      dockerfile: Dockerfiles/IdentityDockerfile
+    networks:
+      - db_network
+      - febe_network
+
+  mongodb:
+    image: mongo
+
+  tvshow.api:
+    image: ${DOCKER_REGISTRY-}tvshowapi
+    build:
+      context: .
+      dockerfile: Dockerfiles/SeriesDockerfile
+
+  
+  
+  angular-server:
+    build:
+      context: .
+      dockerfile: Dockerfiles/AngularDockerFile
+    networks:
+      - febe_network
+      
+      
+volumes:
+  mssqldata:
+  mongo_data:
+  tvshow_data:
+
+networks:
+  db_network:
+  febe_network:
+  

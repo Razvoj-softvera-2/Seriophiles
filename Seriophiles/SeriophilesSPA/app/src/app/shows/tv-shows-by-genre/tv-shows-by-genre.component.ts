@@ -17,7 +17,7 @@ export class TvShowsByGenreComponent {
     console.log(this.genre);
     tvShowFacadeService.getTVShowsByGenre(this.genre).subscribe((result:ITvShow[]) =>{
       this.tvShowsByGenre = [...result];
-      this.tvShowsByGenre=this.tvShowsByGenre.filter((tvShow: ITvShow) => tvShow.genres.some(genre=> genre === this.genre));
+      console.log(this.tvShowsByGenre);
     });
 
   }
