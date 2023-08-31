@@ -15,7 +15,10 @@ import {
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
 
-  private readonly whitelistUrls: string[] = ['/api/v1/AuthenticationUser/Login','/api/v1/AuthenticationUser/Refresh'];
+  private readonly whitelistUrls: string[] = ['/api/v1/AuthenticationUser/Login',
+    '/api/v1/AuthenticationUser/Refresh','api/v1/TVShow/GetAllTVShows',
+    '/api/v1/TVShow/{id}','/api/v1/TVShow/GetTVShowsByYear/{year}',
+    '/api/v1/TVShow/GetTVShowsByGenre/{genre}','/api/v1/TVShow/GetTVShowByTitle/{title}'];
 
   private isRefreshing: boolean = false;
   private refreshedAccessTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
