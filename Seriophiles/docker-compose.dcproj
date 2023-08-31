@@ -14,5 +14,11 @@
     </None>
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
+    <None Include="Dockerfiles\SeriesDataDockerfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".dockerignore">
+      <Link>Dockerfiles\.dockerignore</Link>
+    </Content>
   </ItemGroup>
 </Project>

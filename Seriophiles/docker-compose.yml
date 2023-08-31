@@ -35,13 +35,32 @@ services:
     networks:
       - febe_network
       
+  series-db:
+    image: postgres
+      
+      
+  series-data:
+    build:
+      context: .
+      dockerfile: Dockerfiles/SeriesDataDockerfile
+    networks:
+      - series_network
+    
+  adminer:
+    image: adminer
+    
+     
+     
+      
       
 volumes:
   mssqldata:
   mongo_data:
   tvshow_data:
+  postgres_data:
 
 networks:
   db_network:
   febe_network:
+  series_network:
   
