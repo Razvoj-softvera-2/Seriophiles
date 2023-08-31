@@ -7,7 +7,7 @@ using Series.API.Repositories;
 
 namespace Series.API.TVMaze
 {
-	public static class TVMazeClient
+	public class TVMazeClient
 	{
 		private static readonly string _url = "https://api.tvmaze.com";
 
