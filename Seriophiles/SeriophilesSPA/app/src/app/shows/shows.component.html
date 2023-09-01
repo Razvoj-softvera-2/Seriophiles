@@ -1,6 +1,6 @@
 <div >
   <ul>
-    <li *ngFor="let genre of Object.values(Genre)">
+    <li *ngFor="let genre of genres">
       <a [routerLink]="['/shows',genre]">{{ genre }}</a>
     </li>
   </ul>

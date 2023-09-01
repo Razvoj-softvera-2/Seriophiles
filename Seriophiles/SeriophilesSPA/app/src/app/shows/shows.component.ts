@@ -12,8 +12,11 @@ export class ShowsComponent {
 
   public searchString = "";
   public tvShowBySearch : ITvShow[] = [];
+  public genres: string[] = [];
   constructor(private tvShowFacadeService: TvShowFacadeService){
-
+    this.tvShowFacadeService.getGenres().subscribe((result)=>{
+      this.genres = [...result];
+    })
   }
 
   onSearch(): void {

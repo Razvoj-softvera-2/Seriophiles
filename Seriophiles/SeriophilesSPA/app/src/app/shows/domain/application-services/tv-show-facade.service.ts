@@ -32,4 +32,8 @@ export class TvShowFacadeService {
     return this.tvShowService.getTVShowsByName(name);
   }
 
+  public getGenres(): Observable<string[]> {
+    return this.tvShowService.getGenres();
+  }
+
 }

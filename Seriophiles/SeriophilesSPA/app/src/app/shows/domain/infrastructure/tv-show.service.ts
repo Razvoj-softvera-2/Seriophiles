@@ -38,6 +38,10 @@ export class TvShowService {
     return this.httpClient.get<ITvShow[]>(this.seriesAPIUrl+"/GetTVShowByTitle/"+showName);
   }
 
+  public getGenres(): Observable<string[]>{
+    return this.httpClient.get<string[]>(this.seriesAPIUrl+"/Genres");
+  }
+
 
 
 
