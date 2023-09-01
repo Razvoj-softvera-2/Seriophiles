@@ -10,6 +10,8 @@
 <div>
   <input type="text" [(ngModel)]="searchString" (input)="onSearch()" placeholder="Search for products" />
 </div>
-<div *ngIf="tvShowBySearch">
-  <h2 [routerLink]="['shows/info',tvShowBySearch.id]">{{tvShowBySearch.name}}</h2>
+<div *ngIf="tvShowBySearch.length > 0">
+  <div *ngFor="let show of tvShowBySearch">
+    <h2 [routerLink]="['info',show.id]">{{show.name}}</h2>
+  </div>
 </div>
