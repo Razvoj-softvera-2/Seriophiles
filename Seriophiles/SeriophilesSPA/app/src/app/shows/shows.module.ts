@@ -6,10 +6,9 @@ import { ShowsComponent } from "./shows.component";
 import {FormsModule} from "@angular/forms";
 
 
-
 @NgModule({
   declarations:[
-    ShowsComponent,
+    ShowsComponent
   ],
     imports: [
         CommonModule,

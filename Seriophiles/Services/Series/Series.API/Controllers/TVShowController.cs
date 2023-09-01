@@ -25,7 +25,8 @@ namespace Series.API.Controllers
             var tvshow = await _showRepository.GetTVShowById(id);
             if (tvshow == null)
             {
-                return NotFound();
+                var result = await _showRepository.CreateTVShowById(id);
+                return Ok(result);
             }
             return Ok(tvshow);
         }
