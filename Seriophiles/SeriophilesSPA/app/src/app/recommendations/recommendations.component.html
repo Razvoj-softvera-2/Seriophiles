@@ -1,11 +1,17 @@
-<div *ngIf="tvShows.length>0;else emptyShow">
-  <div *ngFor="let show of tvShows">
-    <p>{{show.name}}</p>
+<div *ngIf="appState$ | async as appState; else notLogged">
+  <div *ngIf="tvShows.length>0;else emptyShow">
+    <div *ngFor="let show of tvShows">
+      <p>{{show.name}}</p>
+    </div>
   </div>
+
+  <ng-template #emptyShow>
+    <div>
+      <h1>This year have not any show released, we will keep you updated when something comes out</h1>
+    </div>
+  </ng-template>
 </div>
 
-<ng-template #emptyShow>
-  <div>
-    <h1>This year have not any show released, we will keep you updated when something comes out</h1>
-  </div>
+<ng-template #notLogged>
+  <h1>Welcome to Seriophile social network. If you want to get full experience please log.</h1>
 </ng-template>
