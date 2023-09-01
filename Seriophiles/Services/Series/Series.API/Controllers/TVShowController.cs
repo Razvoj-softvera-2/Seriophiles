@@ -58,7 +58,7 @@ namespace Series.API.Controllers
             return Ok(tvshows);
         }
 
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [HttpPost("[action]")]
         [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]

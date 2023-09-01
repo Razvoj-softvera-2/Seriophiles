@@ -11,9 +11,12 @@ import {TvShowFacadeService} from "./domain/application-services/tv-show-facade.
 export class ShowsComponent {
 
   public searchString = "";
-  public tvShowBySearch : ITvShow | undefined;
+  public tvShowBySearch : ITvShow[] = [];
+  public genres: string[] = [];
   constructor(private tvShowFacadeService: TvShowFacadeService){
-
+    this.tvShowFacadeService.getGenres().subscribe((result)=>{
+      this.genres = [...result];
+    })
   }
 
   onSearch(): void {
@@ -21,7 +24,7 @@ export class ShowsComponent {
       this.tvShowFacadeService.getTvShowByName(this.searchString)
         .subscribe((data) => {
           console.log(data);
-          this.tvShowBySearch = data;
+          this.tvShowBySearch = [...data];
         });
     }
   }

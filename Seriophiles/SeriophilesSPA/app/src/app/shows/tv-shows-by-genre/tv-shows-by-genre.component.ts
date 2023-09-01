@@ -12,8 +12,6 @@ import { ITvShow } from "../domain/models/ITvShow";
 export class TvShowsByGenreComponent {
   public tvShowsByGenre: ITvShow[] = [];
   public genre: string;
-  public searchString = "";
-  public tvShowBySearch : ITvShow | undefined;
 
   constructor(private tvShowFacadeService: TvShowFacadeService, private router: Router){
     this.genre = router.url.substring(router.url.lastIndexOf('/')+1);
