@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Series.API.Entities;
 using Series.API.DTOs;
+using Series.API.Repositories;
 
 
 namespace Series.API.TVMaze
@@ -12,6 +13,8 @@ namespace Series.API.TVMaze
 
 		private static JObject show;
 		private static JObject actor;
+		
+
 		public static async Task<JObject> FetchTVShowJson(int id)
 		{
 			using (var client = new HttpClient())
@@ -53,6 +56,7 @@ namespace Series.API.TVMaze
 					character.name = c.character.name.ToObject<string>();
 					character.actor_name = c.person.name.ToObject<string>();
 					castList.Add(character);
+
 				}
 
 				show = prepareShow(json);
@@ -97,13 +101,15 @@ namespace Series.API.TVMaze
 
 private static JObject prepareShow(JObject data)
 		{
+			
+			
 			var json = new JObject();
 
 			json.Add("id", data.Property("id").ToObject<int>());
 			var name = string.Join(string.Empty, data.Property("name")) != "N/A" ? new JProperty("name", string.Join(string.Empty, data.Property("name"))) : new JProperty("name", null);
 			json.Add(name);
 
-			var runtime = data.Property("runtime").ToObject<string>() != "N/A" ? new JProperty("runtime", data.Property("runtime").ToObject<int>()) : new JProperty("runtime", null);
+			var runtime = data.Property("runtime").ToObject<string>() != "N/A" ? new JProperty("runtime", data.Property("runtime").ToObject<string>()) : new JProperty("runtime", null);
 			json.Add(runtime);
 
 			var premiered = string.Join(string.Empty, data.Property("premiered")) != "N/A" ? new JProperty("premiered", string.Join(string.Empty, data.Property("premiered"))) : new JProperty("premiered", null);
@@ -120,6 +126,13 @@ private static JObject prepareShow(JObject data)
 
 			var summary = string.Join(string.Empty, data.Property("summary")) != "N/A" ? new JProperty("summary", string.Join(string.Empty, data.Property("summary"))) : new JProperty("summary", null);
 			json.Add(summary);
+			
+			var image = data.Property("image") != null && data.Property("image").Value.Type == JTokenType.Object
+				? new JProperty("image", data.Property("image").Value["medium"].ToObject<string>())
+				: new JProperty("image", null);
+			json.Add(image);
+
+			
 			
 			if (string.Join(string.Empty, data.Property("genres")) == "N/A")
             {

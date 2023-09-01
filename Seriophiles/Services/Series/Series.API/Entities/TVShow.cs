@@ -15,5 +15,6 @@ namespace Series.API.Entities
         public List<SeasonDTO>? seasons { get; set; }
         public List<CharacterDTO>? cast { get; set; }
         public string? summary { get; set; }
+        public string? image { get; set; }
     }
 }

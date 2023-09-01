@@ -1,4 +1,6 @@
-﻿using Series.API.DTOs;
+﻿using System.Net;
+using System.Runtime.InteropServices;
+using Series.API.DTOs;
 using Series.API.Entities;
 using AutoMapper;
 using Series.API.Context;
@@ -23,7 +25,7 @@ namespace Series.API.Repositories
             var TVShow = await _TVShowContext.TVShows.Find(TVShow => (TVShow.id == id)).FirstOrDefaultAsync();
             return _mapper.Map<TVShowDTO>(TVShow);
         }
-        
+
         public async Task<IEnumerable<TVShowDTO>> GetAllTVShows()
         {
             var TVShows = await _TVShowContext.TVShows.Find(TVShow => true).ToListAsync();
@@ -32,7 +34,8 @@ namespace Series.API.Repositories
 
         public async Task<IEnumerable<TVShowDTO>> GetTVShowByTitle(string name)
         {
-            var TVShows = await _TVShowContext.TVShows.Find(TVShow => TVShow.name.ToLower().Contains(name.ToLower())).ToListAsync();
+            var TVShows = await _TVShowContext.TVShows.Find(TVShow => TVShow.name.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
             return _mapper.Map<IEnumerable<TVShowDTO>>(TVShows);
         }
 
@@ -70,17 +73,22 @@ namespace Series.API.Repositories
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
 
-
+        
         public async Task<bool> CreateTVShowById(int id)
         {
             var tvshow = await _TVShowContext.TVShows.Find(show => (show.id == id)).FirstOrDefaultAsync();
-            var result = await TVMazeClient.FetchTVShowJson(id);
-
-            if (tvshow != null || result == null)
+            if (tvshow != null)
                 return false;
 
-            await _TVShowContext.TVShows.InsertOneAsync(result.ToObject<TVShow>());
+            var result = await TVMazeClient.FetchTVShowJson(id);
 
+            if (result == null)
+                return false;
+            
+            
+            
+            await _TVShowContext.TVShows.InsertOneAsync(result.ToObject<TVShow>());
+            Console.WriteLine("Added enrty in database: " + result);
             return true;
         }
 
@@ -90,35 +98,42 @@ namespace Series.API.Repositories
             List<int> values = new List<int>();
             for (int i = 0; i < number; ++i)
             {
-                var rand_num = random.Next(0,50000);
+                if (values.Count >= 50000)
+                    break;
+
+                var rand_num = random.Next(0, 50000);
                 if (values.Contains(rand_num))
                 {
                     if (i > 0)
                         i = i - 1;
                     continue;
                 }
+
                 values.Add(rand_num);
             }
 
-
+            var counter = 0;
             for (int i = 0; i < number; i++)
             {
-                var tvshow = await _TVShowContext.TVShows.Find(show => (show.id == values[i])).FirstOrDefaultAsync();
-                if (tvshow != null)
-                {
-                    continue;
-                }
-                var result = await TVMazeClient.FetchTVShowJson(values[i]);
-
-                if (tvshow != null || result == null)
-                    return false;
-
-                await _TVShowContext.TVShows.InsertOneAsync(result.ToObject<TVShow>());
+                if (await CreateTVShowById(values[i]))
+                    counter++;
             }
-
-
+            
+            Console.WriteLine(counter);
             return true;
         }
+        public async Task<List<string>> getGenres()
+        {
+            var tvShows = await GetAllTVShows();
+            var genres = tvShows
+                .SelectMany(show => show.genres)
+                .Distinct()
+                .ToList();
+            return genres;
 
+        }
+        
     }
+
+
 }
