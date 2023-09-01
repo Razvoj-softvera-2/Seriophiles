@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Series.API.Controllers
 {
-    // [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class TVShowController : ControllerBase
