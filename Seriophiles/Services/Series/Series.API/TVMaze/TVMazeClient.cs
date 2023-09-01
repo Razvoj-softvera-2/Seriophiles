@@ -55,6 +55,7 @@ namespace Series.API.TVMaze
 					character.show_id = id;
 					character.name = c.character.name.ToObject<string>();
 					character.actor_name = c.person.name.ToObject<string>();
+
 					castList.Add(character);
 
 				}

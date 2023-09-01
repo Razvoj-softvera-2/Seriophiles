@@ -4,6 +4,7 @@ using AutoMapper;
 using Series.API.Context;
 using MongoDB.Driver;
 using Series.API.TVMaze;
+using Series.API.Repositories;
 
 namespace Series.API.Repositories
 {
@@ -30,7 +31,7 @@ namespace Series.API.Repositories
 
         public async Task<ActorDTO> GetActorById(int id)
         {
-            var Actor = await _ActorContext.Actors.Find(Actor => (Actor.id == id)).FirstOrDefaultAsync();
+            var Actor = await _ActorContext.Actors.Find(filter: Actor => (Actor.id == id)).FirstOrDefaultAsync();
             return _mapper.Map<ActorDTO>(Actor);
         }
     }

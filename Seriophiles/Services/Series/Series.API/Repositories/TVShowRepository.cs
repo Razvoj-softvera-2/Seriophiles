@@ -55,7 +55,7 @@ namespace Series.API.Repositories
         {
             var TVShows = await _TVShowContext.TVShows.Find(TVShow => true).ToListAsync();
             var shows = new HashSet<TVShow>();
-            shows.UnionWith(TVShows.FindAll(TVShow => TVShow.genres.Contains(genre)));
+            shows.UnionWith(TVShows.FindAll(TVShow => TVShow.genres.Any(s=>genre.ToLower()==s.ToLower())));
 
             return _mapper.Map<IEnumerable<TVShowDTO>>(shows);
         }

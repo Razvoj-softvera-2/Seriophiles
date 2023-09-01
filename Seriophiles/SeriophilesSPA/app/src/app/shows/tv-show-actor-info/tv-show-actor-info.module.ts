@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TvShowInfoRoutingModule } from './tv-show-info-routing.module';
-import { TvShowInfoComponent } from './tv-show-info.component';
+import { TvShowActorInfoRoutingModule } from './tv-show-actor-info-routing.module';
+import { TvShowActorInfoComponent } from './tv-show-actor-info.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { HttpClientModule } from "@angular/common/http";
 
+
 @NgModule({
   declarations: [
-    TvShowInfoComponent
+    TvShowActorInfoComponent
   ],
     imports: [
         CommonModule,
-        TvShowInfoRoutingModule,
+        TvShowActorInfoRoutingModule,
         ReactiveFormsModule,
         HttpClientModule
     ]
 })
-export class TvShowInfoModule { }
+export class TvShowActorInfoModule { }
