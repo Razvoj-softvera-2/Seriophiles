@@ -1,0 +1,21 @@
+<div *ngIf="actor">
+  <div style="margin: 150px">
+    <div *ngIf="actor.name">
+      <h1>{{actor.name}}</h1>
+    </div>
+      <p><b>Characters:</b></p>
+      <li *ngFor="let character of actor.characters">
+        <div [routerLink]="['/shows/info/',character.show_id]">
+          <div *ngIf="character.show_name; else notExist">
+               {{character.name}} in movie {{character.show_name}}
+          </div>
+          <ng-template #notExist>
+            <p>{{character.name}}</p>
+          </ng-template>
+        </div>
+       </li>
+      <br>
+      <br>
+    </div>
+  </div>
+

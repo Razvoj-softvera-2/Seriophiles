@@ -13,7 +13,8 @@ export class TvShowInfoComponent {
   public tvShow: ITvShow | undefined;
 
   constructor(private  tvShowService: TvShowFacadeService, private router: Router) {
-    const id = Number.parseInt(this.router.url.substring(this.router.url.lastIndexOf('/')+1));
+    const id = Number.parseInt(this.router.url.substring(this.router.url.lastIndexOf('/') + 1));
+    
     this.tvShowService.getTvShowById(id).subscribe((result)=>{
       this.tvShow = result;
     });

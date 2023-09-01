@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Series.API.Entities;
 using Series.API.DTOs;
+using Series.API.Repositories;
 
 
 namespace Series.API.TVMaze
@@ -52,6 +53,7 @@ namespace Series.API.TVMaze
 					character.show_id = id;
 					character.name = c.character.name.ToObject<string>();
 					character.actor_name = c.person.name.ToObject<string>();
+
 					castList.Add(character);
 				}
 

@@ -22,7 +22,7 @@ export class TvShowService {
   }
 
   public getTvShowById(showId: number): Observable<ITvShow> {
-    return this.httpClient.get<ITvShow>(this.seriesAPIUrl+"/TVShow/"+showId);
+    return this.httpClient.get<ITvShow>(this.seriesAPIUrl+"/"+showId);
   }
 
   public getTvShowsByYear(year: number): Observable<ITvShow[]> {
@@ -30,6 +30,7 @@ export class TvShowService {
   }
 
   public getTVShowsByGenre(genre: string): Observable<ITvShow[]> {
+    console.log(this.seriesAPIUrl.toString() + "/GetTVShowsByGenre/" + genre);
     return this.httpClient.get<ITvShow[]>(this.seriesAPIUrl+"/GetTVShowsByGenre/"+genre);
   }
 
