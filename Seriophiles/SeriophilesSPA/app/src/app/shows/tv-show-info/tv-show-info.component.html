@@ -1,34 +1,40 @@
 <div *ngIf="tvShow">
-  <div style="margin: 150px">
+  <div class="show-info">
+    <div class="container">
       <h1>{{tvShow.name}}</h1>
-      <p><b>Genres:</b></p>
-      <li *ngFor="let genres of tvShow.genres">
-        {{genres}}
-      </li>
-      <br>
-      <p><b>Cast:</b></p>
-      <li *ngFor="let cast of tvShow.cast">
-        <div [routerLink]="['/shows/actor/',cast.actor_id]">
-          {{cast.actor_name}} as {{cast.name}}
-        </div>
-      </li>
-      <br>
-      <br>
-      <br>
-      <p><b>Summary:</b></p>
-      <p>{{tvShow.summary}}</p>
-
-
-      <div *ngFor="let season of tvShow.seasons">
-        <button class="collapsible" style="width: 35%; left: 400px;">{{season.number}}</button>
-        <div class="content" *ngFor="let episode of season.episodes">
-          Episode name: {{episode.name}} <br />
-          Episode runtime: {{episode.runtime}} <br />
-          <div *ngIf="episode.summary">
-            Episode summary: {{episode.summary}}<br />
+      <div class="genres">
+         <li *ngFor="let genres of tvShow.genres">
+           {{genres}}
+         </li>
+      </div>
+      <div class="cast">
+        <h2>Cast:</h2>
+        <ul>
+          <li *ngFor="let cast of tvShow.cast">
+            <div [routerLink]="['/shows/actor/',cast.actor_id]">
+              {{cast.actor_name}} as {{cast.name}}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="summary">
+        <h2>Summary:</h2>
+        <p>{{tvShow.summary}}</p>
+      </div>
+      <div class="season">
+        <div *ngFor="let season of tvShow.seasons;">
+          <h2>Season {{season.number}}</h2>
+          <div *ngFor="let episode of season.episodes;">
+            <div class="episode">
+              <h2>Episode {{episode.name}}</h2>
+              <p class="runtime">Runtime: {{episode.runtime}} minutes</p>
+              <p class="episode-summary">{{episode.summary}}</p>
+            </div>
           </div>
         </div>
+        <!-- Add more episodes as needed -->
       </div>
+    </div>
   </div>
-</div>
 
+</div>

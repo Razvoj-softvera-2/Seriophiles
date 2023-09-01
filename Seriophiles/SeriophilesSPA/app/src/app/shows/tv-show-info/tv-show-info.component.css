@@ -1,51 +1,46 @@
-.comment{
-  border: 1px solid rgba(16, 46, 46, 1);
-  background-color: rgba(16, 46, 46, 0.973);
-  float: left;
-  border-radius: 5px;
-  padding-left: 40px;
-  padding-right: 30px;
-  padding-top: 10px;
-
+.show-info{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
 }
-.comment h4,.comment span,.darker h4,.darker span{
-  display: inline;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
-.comment p,.comment span,.darker p,.darker span{
-  color: rgb(184, 183, 183);
+h1 {
+  font-size: 28px;
+  margin: 0;
 }
-
-
-label{
-  color: rgb(212, 208, 208);
+.genres {
+  margin-top: 10px;
+  font-style: italic;
 }
-
-#align-form{
+.cast {
+  margin-top: 10px;
+}
+.summary {
   margin-top: 20px;
 }
-.form-group p a{
-  color: white;
+.season {
+  margin-top: 30px;
 }
-
-#checkbx{
-  background-color: black;
+.episode {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
 }
-
-#darker img{
-  margin-right: 15px;
-  position: static;
+.episode h2 {
+  font-size: 18px;
+  margin: 0;
 }
-
-.form-group input,.form-group textarea{
-  background-color: darksalmon;
-  border: 1px solid rgba(16, 46, 46, 1);
-  border-radius: 12px;
+.episode .runtime {
+  font-style: italic;
 }
-
-form{
-  border: 1px solid rgba(16, 46, 46, 1);
-  background-color: darksalmon;
-  border-radius: 5px;
-  padding: 20px;
+.episode .episode-summary {
+  margin-top: 10px;
 }
