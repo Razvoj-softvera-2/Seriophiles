@@ -32,5 +32,25 @@ namespace Series.API.Controllers
 
             return actor;
         }
+
+        [Authorize(Roles = "Administrator,User")]
+        [HttpGet("{id}", Name = "GetActor")]
+        [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TVShowDTO), StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<TVShowDTO>> GetActorById(int id)
+        {
+            var actor = await _actorRepository.GetActorById(id);
+            if (actor == null)
+            {
+                var result = await _actorRepository.CreateActorById(id);
+
+            if (result == false)
+                return BadRequest();
+
+            var actor1 = await _actorRepository.GetActorById(id);
+            return Ok(actor1);
+            }
+            return Ok(actor);
+        }
     }
 }

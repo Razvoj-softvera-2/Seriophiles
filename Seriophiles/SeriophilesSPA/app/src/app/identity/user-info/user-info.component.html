@@ -1,3 +1,14 @@
 <div *ngIf="appState$ | async as appState">
-  <h1>Hello {{appState.username}}</h1>
+  <div class="user-info">
+      <div class="user-card-wrapper">
+        <div class="user-card">
+          <h1>User Information</h1>
+          <p><strong>First Name:</strong> {{appState.firstName}}</p>
+          <p><strong>Last Name:</strong> {{appState.lastName}}</p>
+          <p><strong>Username:</strong> {{appState.username}}</p>
+          <p><strong>Email:</strong> {{appState.email}}</p>
+        </div>
+        <div class="profile-photo"></div>
+      </div>
+  </div>
 </div>

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { IUser } from "../models/IUser";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, switchMap, take} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {AppStateService} from "../../../shared/app-state/app-state-service";
 import {ISignupRequest} from "../models/ISignupRequest";
 import {ILoginRequest} from "../models/ILoginRequest";
-import {AppStateService} from "../../../shared/app-state/app-state-service";
-import {IAppState} from "../../../shared/app-state/app-state";
+import {IUser} from "../models/IUser";
 
 @Injectable({
   providedIn: 'root'
