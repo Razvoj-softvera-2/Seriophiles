@@ -16,5 +16,6 @@ namespace Series.API.Repositories
         Task<bool> CreateTVShowById(int id);
         Task<bool> CreateRandomTVShows(int number);
 
+        Task<List<string>> getGenres();
     }
 }
