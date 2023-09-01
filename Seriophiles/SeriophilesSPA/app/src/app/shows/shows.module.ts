@@ -7,7 +7,7 @@ import { ShowsComponent } from "./shows.component";
 
 @NgModule({
   declarations:[
-    ShowsComponent,
+    ShowsComponent
   ],
   imports:[
     CommonModule,

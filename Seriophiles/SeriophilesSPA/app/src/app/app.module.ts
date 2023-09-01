@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from "@angular/material/list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {TvShowFacadeService} from "./shows/domain/application-services/tv-show-facade.service";
-import {UserFacadeService} from "./identity/domain/application-services/user-facade.service";
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {IdentityModule} from "./identity/identity.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AuthenticationInterceptor} from "./shared/interceptors/authentication.interceptor";
 
 @NgModule({
   declarations: [
@@ -26,9 +27,13 @@ import { HttpClientModule } from "@angular/common/http";
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    IdentityModule
   ],
-  providers: [ TvShowFacadeService, UserFacadeService ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,5 +16,8 @@
       "seasons": []},
     {"id": 4, "name": "The Last Dance", "startDate": 2020, "endDate": 2020, "comments":[], "genre": "Sports", "numberOfReviews": 0, "description":"Charting the rise of the 1990s Chicago Bulls, led by Michael Jordan, one of the most notable dynasties in sports history.","poster": "",
       "seasons": []}
+  ],
+  "reviews": [
+
   ]
 }

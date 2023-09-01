@@ -1,14 +1,218 @@
 {
   "users": [
-    {"id": 1,"firstName": "Petar","lastName": "Petrovic","username": "petarP97","email": "perap@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [],
+    {
+      "id": 1,
+      "firstName": "Petar",
+      "lastName": "Petrovic",
+      "username": "petarP97",
+      "email": "perap@gmail.com",
+      "favouriteGenres": [],
+      "watchlist": [],
+      "reviews": [],
       "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"
     },
-    {"id": 2,"firstName": "Marko","lastName": "Markovic","username": "mare123","email": "mare123@gmail.com","favouriteGenres": [],"watchlist": [], "reviews": [], "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"}
+    {
+      "id": 2,
+      "firstName": "Marko",
+      "lastName": "Markovic",
+      "username": "mare123",
+      "email": "mare123@gmail.com",
+      "favouriteGenres": [],
+      "watchlist": [],
+      "reviews": [],
+      "photo": "https://easydrawingguides.com/wp-content/uploads/2022/08/blank-face-11.png"
+    }
   ],
-  "shows": [{"id": 0, "name": "Breaking Bad", "startDate": 2008, "endDate": 2013, "comments":[] , "genre": "Drama" , "numberOfReviews": 0 ,"description": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future."},
-    {"id": 1, "name": "Better Call Saul", "startDate": 2015, "comments":[], "genre": "Drama", "numberOfReviews": 0, "description":""},
-    {"id": 2, "name": "Money Heist", "startDate": 2017,"endDate": 2021, "comments": [], "genre": "Action", "numberOfReviews": 0, "description": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain."},
-    {"id": 3, "name": "Juzni Vetar", "startDate": 2019, "comments":[], "genre": "Action", "numberOfReviews": 0, "description":"Petar Maras continues his expansion in criminal underworld while saving his family."},
-    {"id": 4, "name": "The Last Dance", "startDate": 2020, "endDate": 2020, "comments":[], "genre": "Action", "numberOfReviews": 0, "description":"Charting the rise of the 1990s Chicago Bulls, led by Michael Jordan, one of the most notable dynasties in sports history."}
+  "shows": [
+    {
+      "id": 1,
+      "name": "Breaking bad",
+      "year": 2008,
+      "genres": [
+        "Action"
+      ],
+      "runtime": 45,
+      "premiered": 2008,
+      "ended": 2013,
+      "language": "English",
+      "rating": {
+        "average": 9.9
+      },
+      "summary": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
+      "episodes": [],
+      "cast": {
+        "Brian Cranston": "Walter White",
+        "Aaron Paul": "Jesse Pinkman",
+        "Giancarlo Esposito": "Gustavo Fring",
+        "Bob Odenkrik": "Saul Goodman"
+      },
+      "reviews": [
+        {
+          "username": "ana",
+          "rating": 10,
+          "comment": "Such a good show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "pera",
+          "rating": 9.5,
+          "comment": "Such a great show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Better Call Saul",
+      "year": 2015,
+      "genres": [
+        "Action"
+      ],
+      "runtime": 45,
+      "premiered": 2015,
+      "ended": 2022,
+      "language": "English",
+      "rating": {
+        "average": 9.9
+      },
+      "summary": "A spinoff of Breaking bad about criminal layer Jimmy McGill",
+      "episodes": [],
+      "cast": {
+        "Bob Odenkrik": "Jimmy McGill",
+        "Brian Cranston": "Walter White",
+        "Aaron Paul": "Jesse Pinkman",
+        "Giancarlo Esposito": "Gustavo Fring"
+      },
+      "reviews": [
+        {
+          "username": "ana",
+          "rating": 10,
+          "comment": "Such a good show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "pera",
+          "rating": 9.5,
+          "comment": "Such a great show",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        },
+        {
+          "username": "stevica",
+          "rating": 10,
+          "comment": "Kim Wexler is best!!!",
+          "spoiler": false,
+          "upvotes": 0,
+          "downvotes": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Juzni vetar",
+      "year": 2020,
+      "genres": [
+        "Drama"
+      ],
+      "runtime": 45,
+      "premiered": 2020,
+      "language": "Serbian",
+      "rating": {
+        "average": 8.1
+      },
+      "summary": "Petar Maras continues his expansion in criminal underworld while saving his family.",
+      "episodes": [],
+      "cast": {
+        "Milos Bikovic": "Maras",
+        "Miodrag Radonjic": "Baca"
+      },
+      "reviews": []
+    }
+  ],
+  "reviews": [
+    {
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "showId": 2,
+      "username": "pera",
+      "rating": 9.5,
+      "comment": "Such a great show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "showId": 2,
+      "username": "stevica",
+      "rating": 10,
+      "comment": "Kim Wexler is best!!!",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 10,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 15,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show with sad ending",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 16,
+      "showId": 1,
+      "username": "ana",
+      "rating": 10,
+      "comment": "Such a good show with sad ending",
+      "spoiler": false,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 42997939,
+      "showId": 1,
+      "username": "ste1drag",
+      "rating": 10,
+      "comment": "dsdsadsa",
+      "isSpoiler": true,
+      "upvotes": 0,
+      "downvotes": 0
+    },
+    {
+      "id": 22074129,
+      "showId": 1,
+      "username": "ste1drag",
+      "rating": 10,
+      "comment": "",
+      "isSpoiler": true,
+      "upvotes": 0,
+      "downvotes": 0
+    }
   ]
 }

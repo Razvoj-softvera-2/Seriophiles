@@ -1,2 +1,12 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
+<div *ngIf="!isOutsideMainPage() else registration">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</div>
+<ng-template #registration>
+  <div *ngIf="router.url === '/identity/login'">
+    <app-login-form></app-login-form>
+  </div>
+  <div *ngIf="router.url === '/identity/singup'">
+    <app-signup-form></app-signup-form>
+  </div>
+</ng-template>
