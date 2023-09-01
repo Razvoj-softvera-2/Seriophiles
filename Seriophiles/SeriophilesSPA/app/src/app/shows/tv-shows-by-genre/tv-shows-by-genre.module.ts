@@ -6,6 +6,7 @@ import { TvShowsByGenreComponent } from './tv-shows-by-genre.component';
 import { MatCardModule } from "@angular/material/card";
 import { HttpClientModule } from "@angular/common/http";
 import {TvShowFacadeService} from "../domain/application-services/tv-show-facade.service";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {TvShowFacadeService} from "../domain/application-services/tv-show-facade
         CommonModule,
         TvShowsByGenreRoutingModule,
         MatCardModule,
+        FormsModule,
         HttpClientModule
     ],
     providers: [
