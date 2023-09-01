@@ -1,1 +1,11 @@
-<p>recommendations works!</p>
+<div *ngIf="tvShows.length>0;else emptyShow">
+  <div *ngFor="let show of tvShows">
+    <p>{{show.name}}</p>
+  </div>
+</div>
+
+<ng-template #emptyShow>
+  <div>
+    <h1>This year have not any show released, we will keep you updated when something comes out</h1>
+  </div>
+</ng-template>
