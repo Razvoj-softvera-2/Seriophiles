@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Series.API.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class TVShowController : ControllerBase
@@ -114,6 +114,15 @@ namespace Series.API.Controllers
         {
             await _showRepository.DeleteTVShow(id);
             return Ok();
+        }
+        
+        [Authorize(Roles = "Administrator,User")]
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Genres()
+        {
+            var genres = await _showRepository.getGenres();
+            return Ok(genres);
         }
 
     }   
