@@ -1,0 +1,47 @@
+.user-info {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+.user-card-wrapper {
+  display: flex;
+  align-items: stretch;
+  max-width: 800px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.user-card {
+  flex: 2;
+  padding: 40px;
+  text-align: left;
+}
+.user-card h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+.user-card p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #666;
+}
+.user-card strong {
+  color: #222;
+}
+.profile-photo {
+  flex: 1;
+  background-color: #f4f4f4;
+  background-image: url('blank.png');
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
