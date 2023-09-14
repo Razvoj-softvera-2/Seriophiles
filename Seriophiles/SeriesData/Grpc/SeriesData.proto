@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package grpc;
+
+service SeriesDataService {
+    rpc GetShow (ShowRequest) returns (ShowResponse);
+}
+
+message ShowRequest {
+    string show_name = 1;
+}
+
+message ShowResponse {
+    string name = 1;
+    string summary = 2;
+    // Add more fields as needed
+}

@@ -48,19 +48,40 @@ services:
 
           
     angular-server:
-      container_name: angular-server   
+      container_name: angular-server 
+      restart: always
       ports:
         - "3333:80"
-        - "3334:443"
-        - "22:4200"
       volumes:
           - ./nginx-config:/etc/nginx/conf.d
       
-    
+      
+    series-db:
+      restart: always
+      environment:
+        POSTGRES_PASSWORD: "SecretPassword123$"  
+      
+    series-data:
+      container_name: series-data
+      restart: always
+      ports:
+        - "5090:80"
+      environment:
+         - "ConnectionStrings:DefaultConnection=Server=mssql;User Id=postgres;Password=SecretPassword123$;TrustServerCertificate=true;"
+          
+    adminer:
+      container_name: adminer
+      restart: always
+      ports:
+        - 8080:8080
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
 
 networks:
   internal_network:
     driver: bridge
   febe_network:
+    driver: bridge
+  series_network:
     driver: bridge
     
